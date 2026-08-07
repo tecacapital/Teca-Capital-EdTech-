@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Teca Capital EdTech — Educação Financeira Audiovisual Interativa. Aprenda finanças na prática, sem risco real.">
+    <title>Teca Capital - EdTech Capa de Entrada</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- CSS da Capa -->
+    <link rel="stylesheet" href="frontend/css/pages/capa.css">
+</head>
+<body>
+    <!-- ===== CANVAS PARA PARTÍCULAS ===== -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <div class="splash-container">
+        <div class="splash-content">
+            <!-- Logo / Marca -->
+            <div class="logo-wrapper">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h1 class="logo-title">
+                    <span class="logo-highlight">Teca</span>Capital
+                    <span class="logo-sub">EdTech</span>
+                </h1>
+            </div>
+
+            <!-- Slogan -->
+            <p class="slogan">
+                Educação Financeira <span class="highlight">Audiovisual</span> e <span class="highlight">Interativa</span>
+            </p>
+
+            <!-- Descrição -->
+            <p class="description">
+                Simulador de mercados, biblioteca multimídia e certificação - 
+                tudo num único ambiente para si e para a sua empresa.
+            </p>
+
+            <!-- Pergunta de Entrada -->
+            <div class="question-wrapper">
+                <p class="question">
+                    <i class="fas fa-quote-left"></i>
+                    Pronto para começar a sua jornada no universo dos mercados 
+                    financeiros e aprender com a Teca Capital?
+                    <i class="fas fa-quote-right"></i>
+                </p>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="actions">
+                <a href="/frontend/index.html" class="btn btn-primary" id="btnSim">
+                    <i class="fas fa-rocket"></i>
+                    SIM, VAMOS COMEÇAR!
+                </a>
+                <button class="btn btn-secondary" id="btnNao">
+                    <i class="fas fa-clock"></i>
+                    NÃO, TALVEZ DEPOIS
+                </button>
+            </div>
+
+            <!-- Mensagem de Resposta (inicialmente oculta) -->
+            <div class="response-message" id="responseMessage">
+                <i class="fas fa-smile-wink"></i>
+                <p>Sem problemas! Estaremos aqui quando estiveres pronto para dominar o mercado.</p>
+                <button class="btn btn-sm btn-primary" id="btnVoltar">
+                    <i class="fas fa-undo"></i> Voltar
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="splash-footer">
+            <p>
+                <i class="fas fa-map-marker-alt"></i> Feito em Angola
+                <span class="separator">•</span>
+                <span class="year">2026</span>
+            </p>
+            <p class="version">v1.0.0</p>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="frontend/js/pages/capa.js"></script>
+</body>
+</html>
