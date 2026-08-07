@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administração - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/admin.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header header-admin" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="30">
+                </a>
+                <span class="header-badge">Admin</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="admin-user" id="adminUser">Admin</span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main main-admin">
+        <div class="container-fluid">
+            <div class="admin-layout">
+                <aside class="admin-sidebar" role="navigation">
+                    <nav class="admin-nav">
+                        <a href="#dashboard" class="admin-nav-item active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="#usuarios" class="admin-nav-item" data-section="usuarios">
+                            <i class="fas fa-users"></i> Utilizadores
+                        </a>
+                        <a href="#pagamentos" class="admin-nav-item" data-section="pagamentos">
+                            <i class="fas fa-credit-card"></i> Pagamentos
+                            <span class="badge" id="pagamentosPendentes">0</span>
+                        </a>
+                        <a href="#funcionarios" class="admin-nav-item" data-section="funcionarios">
+                            <i class="fas fa-user-tie"></i> Funcionários
+                        </a>
+                        <a href="#parceiros" class="admin-nav-item" data-section="parceiros">
+                            <i class="fas fa-handshake"></i> Parceiros
+                        </a>
+                        <a href="#auditoria" class="admin-nav-item" data-section="auditoria">
+                            <i class="fas fa-clipboard-list"></i> Auditoria
+                        </a>
+                        <a href="#configuracoes" class="admin-nav-item" data-section="configuracoes">
+                            <i class="fas fa-cog"></i> Configurações
+                        </a>
+                    </nav>
+                </aside>
+
+                <div class="admin-content">
+                    <section class="admin-section active" id="section-dashboard">
+                        <h2>Dashboard</h2>
+                        <div class="admin-stats">
+                            <div class="stat-card">
+                                <span class="stat-label">Total Utilizadores</span>
+                                <span class="stat-value" id="statTotalUsers">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Utilizadores Pagos</span>
+                                <span class="stat-value" id="statPagos">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Pagamentos Pendentes</span>
+                                <span class="stat-value" id="statPendentes">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Funcionários</span>
+                                <span class="stat-value" id="statFuncionarios">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Parceiros</span>
+                                <span class="stat-value" id="statParceiros">0</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-usuarios">
+                        <h2>Utilizadores</h2>
+                        <div class="admin-toolbar">
+                            <input type="text" class="input-busca" id="buscaUsuarios" placeholder="Buscar utilizador...">
+                            <button class="btn btn-primario btn-sm" id="btnExportarUsuarios">
+                                <i class="fas fa-download"></i> Exportar
+                            </button>
+                        </div>
+                        <div class="tabela-wrapper">
+                            <table class="tabela" id="tabelaUsuarios">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Tipo</th>
+                                        <th>Assinatura</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaUsuarios"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-pagamentos">
+                        <h2>Pagamentos Pendentes</h2>
+                        <div class="tabela-wrapper">
+                            <table class="tabela" id="tabelaPagamentos">
+                                <thead>
+                                    <tr>
+                                        <th>Utilizador</th>
+                                        <th>Plano</th>
+                                        <th>Valor</th>
+                                        <th>Data</th>
+                                        <th>Comprovativo</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaPagamentos"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-funcionarios">
+                        <h2>Funcionários</h2>
+                        <button class="btn btn-primario btn-sm" id="btnAdicionarFuncionario">
+                            <i class="fas fa-plus"></i> Adicionar Funcionário
+                        </button>
+                        <div class="tabela-wrapper">
+                            <table class="tabela" id="tabelaFuncionarios">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaFuncionarios"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-parceiros">
+                        <h2>Parceiros</h2>
+                        <button class="btn btn-primario btn-sm" id="btnAdicionarParceiro">
+                            <i class="fas fa-plus"></i> Adicionar Parceiro
+                        </button>
+                        <div class="tabela-wrapper">
+                            <table class="tabela" id="tabelaParceiros">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Tipo</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaParceiros"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-auditoria">
+                        <h2>Registo de Auditoria</h2>
+                        <div class="tabela-wrapper">
+                            <table class="tabela" id="tabelaAuditoria">
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Utilizador</th>
+                                        <th>Ação</th>
+                                        <th>Entidade</th>
+                                        <th>Detalhes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaAuditoria"></tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="admin-section" id="section-configuracoes">
+                        <h2>Configurações</h2>
+                        <div class="config-group">
+                            <h3>Dados Bancários</h3>
+                            <div class="config-grid">
+                                <div class="form-group">
+                                    <label>IBAN</label>
+                                    <input type="text" id="configIban" value="AO0600000000000000000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Número Express</label>
+                                    <input type="text" id="configExpress" value="123456789">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nome do Beneficiário</label>
+                                    <input type="text" id="configBeneficiario" value="Teca Capital EdTech">
+                                </div>
+                            </div>
+                            <button class="btn btn-primario" id="btnSalvarConfig">Salvar Configurações</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Adicionar Funcionário -->
+    <div class="modal-overlay" id="modalFuncionario">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="titulo">Adicionar Funcionário</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="formFuncionario">
+                    <div class="form-group">
+                        <label for="funcNome">Nome</label>
+                        <input type="text" id="funcNome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="funcEmail">Email</label>
+                        <input type="email" id="funcEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="funcPassword">Senha</label>
+                        <input type="password" id="funcPassword" required minlength="8">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secundario" data-modal-fechar>Cancelar</button>
+                <button class="btn btn-primario" id="btnSalvarFuncionario">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

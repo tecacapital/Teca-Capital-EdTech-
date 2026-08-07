@@ -1,0 +1,272 @@
+/* ============================================
+   LOGIN, REGISTRO, RECUPERAÇÃO
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== CONTAINER ===== */
+.container-auth {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+/* ===== AUTH CARD ===== */
+.auth-card {
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-xl);
+  padding: var(--espacamento-xl);
+  border: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra-padrao);
+}
+
+.auth-card-register {
+  max-width: 520px;
+}
+
+.auth-card-recover {
+  max-width: 480px;
+}
+
+/* ===== HEADER ===== */
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.auth-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.auth-header p {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+/* ===== TABS ===== */
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-lg);
+  background: var(--cor-fundo);
+  border-radius: var(--raio-borda);
+  padding: 4px;
+}
+
+.auth-tab {
+  padding: 10px;
+  border: none;
+  border-radius: var(--raio-borda);
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-family: var(--fonte-principal);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  min-height: 44px;
+}
+
+.auth-tab:hover {
+  color: var(--cor-texto-primario);
+}
+
+.auth-tab.active {
+  background: var(--cor-fundo-secundaria);
+  color: var(--cor-texto-primario);
+  box-shadow: var(--sombra-padrao);
+}
+
+/* ===== FORMULÁRIOS ===== */
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-form .form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacamento-md);
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+}
+
+.auth-form .forgot-link {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+.auth-form .forgot-link:hover {
+  color: var(--cor-primaria);
+}
+
+.auth-form .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+.auth-form .checkbox-group input[type="checkbox"] {
+  accent-color: var(--cor-primaria);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.auth-form .checkbox-group span {
+  cursor: pointer;
+}
+
+/* ===== PLAN SELECTOR ===== */
+.plan-selector {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-lg);
+}
+
+.plan-selector-option {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-md);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  text-align: left;
+  min-height: 64px;
+}
+
+.plan-selector-option:hover {
+  border-color: var(--cor-borda-dourada);
+}
+
+.plan-selector-option.active {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria-clara);
+  color: var(--cor-texto-primario);
+}
+
+.plan-selector-option .fa-user,
+.plan-selector-option .fa-crown,
+.plan-selector-option .fa-building {
+  font-size: 24px;
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.plan-selector-option strong {
+  display: block;
+  font-size: 14px;
+}
+
+.plan-selector-option small {
+  font-size: 12px;
+  color: var(--cor-texto-terciario);
+}
+
+.plan-selector-option.active small {
+  color: var(--cor-texto-secundario);
+}
+
+/* ===== PLANO INFO ===== */
+.plano-info {
+  background: var(--cor-fundo);
+  padding: var(--espacamento-md);
+  border-radius: var(--raio-borda);
+  border: 1px solid var(--cor-borda);
+}
+
+.plano-info p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+/* ===== TERMS ===== */
+.terms .checkbox-group {
+  align-items: flex-start;
+}
+
+.terms .checkbox-group input[type="checkbox"] {
+  margin-top: 2px;
+}
+
+.terms .checkbox-group span {
+  font-size: 13px;
+}
+
+/* ===== FOOTER ===== */
+.auth-footer {
+  text-align: center;
+  margin-top: var(--espacamento-lg);
+  padding-top: var(--espacamento-lg);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.auth-footer p {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+.auth-footer a {
+  color: var(--cor-primaria);
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  color: var(--cor-primaria-hover);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .auth-card {
+    padding: var(--espacamento-xl) var(--espacamento-xxl);
+  }
+  
+  .auth-header h1 {
+    font-size: 32px;
+  }
+  
+  .plan-selector {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .plan-selector-option {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--espacamento-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-card {
+    padding: var(--espacamento-md);
+    border-radius: var(--raio-borda-grande);
+  }
+  
+  .auth-header h1 {
+    font-size: 24px;
+  }
+  
+  .auth-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

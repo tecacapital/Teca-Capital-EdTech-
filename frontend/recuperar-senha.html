@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Recupere o acesso à sua conta Teca Capital EdTech">
+    <title>Recuperar Senha - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/login.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <header class="header header-auth" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main main-auth">
+        <div class="container-auth">
+            <div class="auth-card auth-card-recover">
+                <div class="auth-header">
+                    <h1>Recuperar Senha</h1>
+                    <p>Insira o seu email ou número de telefone para receber um código de verificação via WhatsApp</p>
+                </div>
+
+                <!-- Passo 1: Solicitar recuperação -->
+                <form class="auth-form active" id="formSolicitarRecuperacao" autocomplete="off">
+                    <div class="form-group">
+                        <label for="recoverEmail">Email ou Telefone</label>
+                        <input type="text" id="recoverEmail" placeholder="seu@email.com ou +244 900 000 000" required>
+                        <span class="helper">O código será enviado para o WhatsApp registado na sua conta</span>
+                    </div>
+                    <button type="submit" class="btn btn-primario btn-full">
+                        <i class="fas fa-whatsapp"></i> Enviar código via WhatsApp
+                    </button>
+                </form>
+
+                <!-- Passo 2: Verificar código (inicialmente oculto) -->
+                <form class="auth-form" id="formVerificarCodigo" autocomplete="off" style="display:none;">
+                    <div class="form-group">
+                        <label for="recoverToken">Código de verificação</label>
+                        <input type="text" id="recoverToken" placeholder="Ex: 123456" required maxlength="6" pattern="[0-9]{6}">
+                        <span class="helper">Introduza os 6 dígitos recebidos no WhatsApp</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="recoverNewPassword">Nova senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="recoverNewPassword" placeholder="•••••••• (mínimo 8 caracteres)" required minlength="8">
+                            <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="recoverConfirmPassword">Confirmar nova senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="recoverConfirmPassword" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primario btn-full">Redefinir Senha</button>
+                    <button type="button" class="btn btn-texto btn-full" id="btnReenviarCodigo">Reenviar código</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p><a href="/frontend/login.html"><i class="fas fa-arrow-left"></i> Voltar ao login</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer footer-auth" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

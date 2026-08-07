@@ -1,0 +1,82 @@
+# ============================================
+# .gitignore — Teca Capital EdTech
+# Frontend Deploy
+# ============================================
+
+# ===== BACKEND (ignorar completamente) =====
+/backend/
+/scripts/
+/testes/
+/documentacao/
+
+# ===== DEPENDÊNCIAS =====
+node_modules/
+package-lock.json
+yarn.lock
+
+# ===== VARIÁVEIS DE AMBIENTE =====
+.env
+.env.local
+.env.*.local
+
+# ===== LOGS =====
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== BUILD =====
+dist/
+build/
+*.min.js
+*.min.css
+
+# ===== IDE E EDITOR =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.iml
+
+# ===== SISTEMA =====
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# ===== TEMPORÁRIOS =====
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ===== BACKUPS =====
+*.backup
+*.bak
+*.old
+
+# ===== TESTES =====
+coverage/
+.nyc_output/
+
+# ===== OUTROS =====
+*.pem
+*.cert
+*.key
+*.sqlite
+*.db
+*.db-journal
+
+# ===== FRONTEND (opcional — assets grandes) =====
+# Descomente se os assets forem muito grandes
+# frontend/assets/midia/videos/*
+# frontend/assets/midia/audios/*
+# !frontend/assets/midia/catalogo.json
+
+# ===== ARQUIVOS DE CONFIGURAÇÃO DO PROJETO =====
+# (mantenha apenas se necessário)
+# .gitattributes
+# .env.example

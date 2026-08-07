@@ -1,0 +1,222 @@
+/* ============================================
+   PERFIL — Página de Perfil do Utilizador
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HEADER ===== */
+.perfil-header {
+  text-align: center;
+  padding: var(--espacamento-xl) 0 var(--espacamento-md);
+}
+
+.perfil-header h1 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.perfil-header p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== LAYOUT ===== */
+.perfil-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-xl);
+  padding: var(--espacamento-md) 0 var(--espacamento-xl);
+}
+
+/* ===== SIDEBAR ===== */
+.perfil-sidebar {
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  border: 1px solid var(--cor-borda);
+  padding: var(--espacamento-xl);
+}
+
+.perfil-avatar {
+  text-align: center;
+  padding-bottom: var(--espacamento-lg);
+  border-bottom: 1px solid var(--cor-borda);
+  margin-bottom: var(--espacamento-lg);
+}
+
+.avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--cor-primaria-clara);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--cor-primaria);
+  margin: 0 auto var(--espacamento-md);
+  border: 3px solid var(--cor-borda-dourada);
+}
+
+.perfil-avatar h2 {
+  font-size: 18px;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.perfil-avatar p {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  margin: 0 0 var(--espacamento-sm);
+}
+
+.perfil-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.perfil-badge.gratuito {
+  background: var(--cor-texto-terciario);
+  color: #FFFFFF;
+}
+
+.perfil-badge.pago {
+  background: var(--cor-primaria);
+  color: #000000;
+}
+
+.perfil-badge.pendente {
+  background: var(--cor-alerta);
+  color: #000000;
+}
+
+/* ===== NAVEGAÇÃO DO PERFIL ===== */
+.perfil-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-xs);
+}
+
+.perfil-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transicao-rapida);
+}
+
+.perfil-nav-item:hover {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+}
+
+.perfil-nav-item.active {
+  background: var(--cor-primaria-clara);
+  color: var(--cor-texto-primario);
+}
+
+.perfil-nav-item i {
+  width: 20px;
+  text-align: center;
+  color: var(--cor-primaria);
+}
+
+/* ===== CONTENT ===== */
+.perfil-content {
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  border: 1px solid var(--cor-borda);
+  padding: var(--espacamento-xl);
+}
+
+.perfil-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.perfil-section.active {
+  display: block;
+}
+
+.perfil-section h2 {
+  font-size: 20px;
+  margin-bottom: var(--espacamento-lg);
+}
+
+/* ===== ASSINATURA ===== */
+.assinatura-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-md);
+  margin-bottom: var(--espacamento-lg);
+  background: var(--cor-fundo);
+  border-radius: var(--raio-borda);
+  padding: var(--espacamento-md);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item .info-label {
+  font-size: 12px;
+  color: var(--cor-texto-secundario);
+}
+
+.info-item .info-valor {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.assinatura-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+}
+
+.assinatura-acoes .btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ===== SEGURANÇA ===== */
+.perfil-actions {
+  margin-top: var(--espacamento-xl);
+}
+
+.perfil-actions hr {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin-bottom: var(--espacamento-lg);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 1024px) {
+  .perfil-layout {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .assinatura-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .perfil-sidebar {
+    padding: var(--espacamento-md);
+  }
+  
+  .perfil-content {
+    padding: var(--espacamento-md);
+  }
+  
+  .assinatura-acoes .btn {
+    flex: 1 1 100%;
+  }
+}

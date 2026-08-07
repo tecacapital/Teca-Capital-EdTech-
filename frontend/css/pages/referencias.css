@@ -1,0 +1,135 @@
+/* ============================================
+   REFERÊNCIAS — Página de Referências Financeiras
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HEADER DA PÁGINA ===== */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xl) 0 var(--espacamento-md);
+}
+
+.page-header h1 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.page-header p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== SECÇÕES DE REFERÊNCIAS ===== */
+.referencias-section {
+  padding: var(--espacamento-xl) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.referencias-section:last-child {
+  border-bottom: none;
+}
+
+.referencias-section h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  font-size: 22px;
+  margin-bottom: var(--espacamento-lg);
+}
+
+.referencias-section h2 .fa-flag,
+.referencias-section h2 .fa-globe,
+.referencias-section h2 .fa-bitcoin {
+  color: var(--cor-primaria);
+}
+
+/* ===== GRID DE REFERÊNCIAS ===== */
+.referencias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+}
+
+/* ===== CARD DE REFERÊNCIA ===== */
+.card-referencia {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  border: 1px solid var(--cor-borda);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transicao-media);
+  cursor: pointer;
+}
+
+.card-referencia:hover {
+  border-color: var(--cor-borda-dourada);
+  transform: translateX(4px);
+  box-shadow: var(--sombra-dourada);
+}
+
+.card-referencia-icon {
+  font-size: 32px;
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+  width: 50px;
+  text-align: center;
+}
+
+.card-referencia h3 {
+  font-size: 16px;
+  margin-bottom: var(--espacamento-xs);
+  color: var(--cor-texto-primario);
+}
+
+.card-referencia p {
+  font-size: 13px;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+}
+
+.card-referencia-link {
+  font-size: 12px;
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+  margin-top: var(--espacamento-xs);
+}
+
+.card-referencia-link .fa-external-link-alt {
+  font-size: 10px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .referencias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .referencias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .card-referencia {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--espacamento-md);
+  }
+  
+  .card-referencia-icon {
+    width: auto;
+  }
+  
+  .referencias-section h2 {
+    font-size: 18px;
+    justify-content: center;
+  }
+}

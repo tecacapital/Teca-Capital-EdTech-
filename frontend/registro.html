@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Crie a sua conta Teca Capital EdTech">
+    <title>Criar Conta - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/login.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header header-auth" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario btn-sm">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario btn-sm active">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario active">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main main-auth">
+        <div class="container-auth">
+            <div class="auth-card auth-card-register">
+                <div class="auth-header">
+                    <h1>Criar Conta</h1>
+                    <p>Escolha o tipo de conta que melhor se adequa a si</p>
+                </div>
+
+                <div class="plan-selector">
+                    <button class="plan-selector-option active" data-plano="gratuito">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <strong>Conta Gratuita</strong>
+                            <small>Individual</small>
+                        </div>
+                    </button>
+                    <button class="plan-selector-option" data-plano="pago">
+                        <i class="fas fa-crown"></i>
+                        <div>
+                            <strong>Conta Paga</strong>
+                            <small>Individual 5.000 Kz/mês</small>
+                        </div>
+                    </button>
+                    <button class="plan-selector-option" data-plano="empresa">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <strong>Conta Empresarial</strong>
+                            <small>12.500 Kz/lote 5 subutilizadores</small>
+                        </div>
+                    </button>
+                </div>
+
+                <form class="auth-form active" id="formRegistro" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regNome">Nome completo</label>
+                            <input type="text" id="regNome" placeholder="João Silva" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regTelefone">Telefone (WhatsApp)</label>
+                            <input type="tel" id="regTelefone" placeholder="+244 900 000 000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regPais">País</label>
+                            <input type="text" id="regPais" placeholder="Angola" required>
+                            <span class="helper">Ex: Angola, Brasil, Portugal</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="regProvincia">Província/Estado</label>
+                            <input type="text" id="regProvincia" placeholder="Luanda">
+                            <span class="helper">Ex: Luanda, São Paulo, Lisboa</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">Senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="regPassword" placeholder="•••••••• (mínimo 8 caracteres)" required minlength="8">
+                            <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="helper">A senha deve ter pelo menos 8 caracteres</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirmar senha</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="regConfirmPassword" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group lotes-empresariais" id="lotesEmpresariais" style="display:none;">
+                        <label for="regLotes">Número de Lotes</label>
+                        <select id="regLotes">
+                            <option value="1">1 lote - 5 subutilizadores - 12.500 Kz/mês</option>
+                            <option value="2">2 lotes - 10 subutilizadores - 25.000 Kz/mês</option>
+                            <option value="3">3 lotes - 15 subutilizadores - 37.500 Kz/mês</option>
+                            <option value="4">4 lotes - 20 subutilizadores - 50.000 Kz/mês</option>
+                            <option value="5">5 lotes - 25 subutilizadores - 62.500 Kz/mês</option>
+                        </select>
+                        <span class="helper">Cada lote dá direito a 5 subutilizadores</span>
+                    </div>
+
+                    <div class="form-group plano-info">
+                        <p id="planoInfoText">Conta gratuita: acesso restrito ao simulador (mercado nacional + BR, renda até 250.000 Kz)</p>
+                    </div>
+
+                    <div class="form-group terms">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="termsCheck" required>
+                            <span>Li e aceito os <a href="/frontend/termos-uso.html" target="_blank">Termos de Uso</a></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group terms">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="privacyCheck" required>
+                            <span>Li e aceito a <a href="/frontend/politica-privacidade.html" target="_blank">Política de Privacidade</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primario btn-full">Criar Conta</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Já possui conta? <a href="/frontend/login.html">Entrar</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer footer-auth" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

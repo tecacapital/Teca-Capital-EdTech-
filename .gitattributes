@@ -1,2 +1,71 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ============================================
+# .gitignore — Teca Capital EdTech
+# ============================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Banco de Dados
+*.sqlite
+*.db
+*.db-journal
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Build e Distribuição
+dist/
+build/
+*.min.js
+*.min.css
+
+# IDE e Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testes
+coverage/
+.nyc_output/
+
+# Snapshots e Backups
+*.snap
+*.backup
+*.bak
+
+# Ficheiros temporários
+tmp/
+temp/
+*.tmp
+
+# Certificados
+*.pem
+*.cert
+*.key
+
+# Frontend (assets gerados)
+frontend/assets/midia/videos/*
+frontend/assets/midia/audios/*
+frontend/assets/midia/ebooks/*
+frontend/assets/midia/imagens/*
+!frontend/assets/midia/catalogo.json
+
+# Dados de simulação (evitar versionar grandes arquivos)
+backend/engine/data/*.json
+!backend/engine/data/README.md

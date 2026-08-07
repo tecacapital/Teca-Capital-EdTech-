@@ -1,0 +1,73 @@
+/* ============================================
+   THEME DARK — Tema Escuro (Padrão)
+   Teca Capital EdTech
+   ============================================ */
+
+:root {
+  /* Cores do tema escuro */
+  --cor-fundo: #000000;
+  --cor-fundo-secundaria: #0A0A0A;
+  --cor-fundo-terciaria: #141414;
+  --cor-fundo-quaternaria: #1A1A1A;
+  
+  --cor-texto-primario: #FFFFFF;
+  --cor-texto-secundario: #B0B0B0;
+  --cor-texto-terciario: #707070;
+  
+  --cor-borda: rgba(255, 255, 255, 0.08);
+  --cor-borda-dourada: rgba(214, 174, 100, 0.3);
+  
+  --cor-sombra: rgba(0, 0, 0, 0.5);
+}
+
+/* Aplicação automática (usando classe no body) */
+body.theme-dark {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+}
+
+body.theme-dark .card,
+body.theme-dark .painel,
+body.theme-dark .modal,
+body.theme-dark .perfil-sidebar,
+body.theme-dark .perfil-content {
+  background: var(--cor-fundo-secundaria);
+  border-color: var(--cor-borda);
+}
+
+body.theme-dark input,
+body.theme-dark select,
+body.theme-dark textarea {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  border-color: var(--cor-borda);
+}
+
+body.theme-dark input:focus,
+body.theme-dark select:focus,
+body.theme-dark textarea:focus {
+  border-color: var(--cor-primaria);
+}
+
+body.theme-dark .tabela thead {
+  background: var(--cor-fundo-terciaria);
+}
+
+body.theme-dark .tabela td {
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ===== TOGGLE DE TEMA ===== */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  font-size: 18px;
+  padding: var(--espacamento-xs);
+  transition: color var(--transicao-rapida);
+}
+
+.theme-toggle:hover {
+  color: var(--cor-primaria);
+}

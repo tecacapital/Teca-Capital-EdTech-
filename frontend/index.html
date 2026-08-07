@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Teca Capital EdTech - Educação Financeira Audiovisual Interativa. Aprenda finanças na prática, sem risco real.">
+    <title>Teca Capital EdTech - Educação Financeira Interativa</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER / NAVBAR ===== -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario btn-sm">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario btn-sm">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE (fullscreen) ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Aprenda Finanças na Prática, <span class="destaque">Sem Risco Real</span></h1>
+                    <p>Simulador de mercados, biblioteca multimídia e certificação, tudo num único ambiente para si e para a sua empresa.</p>
+                    <div class="hero-actions">
+                        <a href="/frontend/registro.html" class="btn btn-primario btn-lg">Começar Gratuitamente</a>
+                        <a href="#funcionalidades" class="btn btn-secundario btn-lg">Explorar Simulador</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SOBRE / BENEFÍCIOS ===== -->
+        <section class="beneficios" id="beneficios">
+            <div class="container">
+                <h2>O que é a Teca Capital EdTech?</h2>
+                <p class="beneficios-subtitulo">Uma plataforma angolana de educação financeira que combina teoria e prática num ambiente imersivo e seguro.</p>
+                <div class="beneficios-grid">
+                    <div class="card card-beneficio">
+                        <div class="card-beneficio-icone">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Aprenda</h3>
+                        <p>Aceda a uma biblioteca multimídia com vídeos, áudios, e-books e infográficos sobre finanças, economia e mercados.</p>
+                    </div>
+                    <div class="card card-beneficio">
+                        <div class="card-beneficio-icone">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Pratique</h3>
+                        <p>Utilize o simulador de mercados com 8 ativos interligados, gerindo carteiras virtuais sem risco financeiro real.</p>
+                    </div>
+                    <div class="card card-beneficio">
+                        <div class="card-beneficio-icone">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Certifique-se</h3>
+                        <p>Valide os seus conhecimentos com provas de certificação por nível e obtenha um certificado formal de conclusão.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FUNCIONALIDADES ===== -->
+        <section class="funcionalidades" id="funcionalidades">
+            <div class="container">
+                <h2>Explore a plataforma</h2>
+                <div class="funcionalidades-grid">
+                    <a href="/frontend/biblioteca.html" class="card card-funcionalidade">
+                        <div class="card-funcionalidade-icone">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Biblioteca Multimídia</h3>
+                        <p>Conteúdos educativos organizados por categoria: vídeos, áudios, e-books e infográficos.</p>
+                        <span class="card-funcionalidade-badge">Teoria</span>
+                    </a>
+                    <a href="/frontend/simulador.html" class="card card-funcionalidade card-funcionalidade-destaque">
+                        <div class="card-funcionalidade-icone">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Simulador de Mercados</h3>
+                        <p>8 mercados interligados, 75 empresas, criptomoedas, commodities, Forex e muito mais.</p>
+                        <span class="card-funcionalidade-badge">Prática</span>
+                    </a>
+                    <a href="/frontend/pages/provas/provas.html" class="card card-funcionalidade">
+                        <div class="card-funcionalidade-icone">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Provas de Certificação</h3>
+                        <p>Teste os seus conhecimentos com quizzes por nível de dificuldade e emita certificados.</p>
+                        <span class="card-funcionalidade-badge">Validação</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PLANOS (ATUALIZADO) ===== -->
+        <section class="planos" id="planos">
+            <div class="container">
+                <h2>Escolha o seu plano</h2>
+                <p class="planos-subtitulo">Comece gratuitamente e evolua para uma experiência completa.</p>
+                <div class="planos-grid">
+                    <!-- Plano Gratuito -->
+                    <div class="card card-plano">
+                        <div class="card-plano-header">
+                            <h3 class="card-plano-nome">Gratuito</h3>
+                            <div class="card-plano-preco">
+                                <span class="preco-valor">0 Kz</span>
+                                <span class="preco-periodo">/ mês</span>
+                            </div>
+                        </div>
+                        <ul class="card-plano-caracteristicas">
+                            <li><i class="fas fa-check"></i> Simulador restrito (mercado nacional + BR)</li>
+                            <li><i class="fas fa-check"></i> Renda mensal até 250.000 Kz</li>
+                            <li><i class="fas fa-check"></i> Provas de Certificação</li>
+                            <li><i class="fas fa-times"></i> Biblioteca Multimídia</li>
+                            <li><i class="fas fa-times"></i> Mercados internacionais</li>
+                            <li><i class="fas fa-times"></i> Indicadores avançados</li>
+                        </ul>
+                        <a href="/frontend/registro.html" class="btn btn-secundario">Começar Agora</a>
+                    </div>
+
+                    <!-- Plano Individual Pago -->
+                    <div class="card card-plano card-plano-destaque">
+                        <div class="card-plano-badge">Mais Popular</div>
+                        <div class="card-plano-header">
+                            <h3 class="card-plano-nome">Individual Pago</h3>
+                            <div class="card-plano-preco">
+                                <span class="preco-valor">5.000 Kz</span>
+                                <span class="preco-periodo">/ mês</span>
+                            </div>
+                        </div>
+                        <ul class="card-plano-caracteristicas">
+                            <li><i class="fas fa-check"></i> Simulador completo (8 mercados)</li>
+                            <li><i class="fas fa-check"></i> Renda mensal sem limite</li>
+                            <li><i class="fas fa-check"></i> Biblioteca Multimídia completa</li>
+                            <li><i class="fas fa-check"></i> Provas de Certificação</li>
+                            <li><i class="fas fa-check"></i> Indicadores avançados</li>
+                            <li><i class="fas fa-check"></i> Comparação de ativos</li>
+                        </ul>
+                        <a href="/frontend/registro.html?plano=pago" class="btn btn-primario">Assinar Agora</a>
+                    </div>
+
+                    <!-- Plano Empresarial (ATUALIZADO) -->
+                    <div class="card card-plano">
+                        <div class="card-plano-header">
+                            <h3 class="card-plano-nome">Empresarial</h3>
+                            <div class="card-plano-preco">
+                                <span class="preco-valor">12.500 Kz</span>
+                                <span class="preco-periodo">/ lote / mês</span>
+                            </div>
+                            <p style="font-size:12px;color:var(--cor-texto-secundario);margin-top:var(--espacamento-xs);">
+                                <i class="fas fa-users"></i> 5 subutilizadores por lote
+                            </p>
+                        </div>
+                        <ul class="card-plano-caracteristicas">
+                            <li><i class="fas fa-check"></i> Acesso total para a equipa</li>
+                            <li><i class="fas fa-check"></i> Lotes de 5 subutilizadores</li>
+                            <li><i class="fas fa-check"></i> Gestão centralizada</li>
+                            <li><i class="fas fa-check"></i> Formação corporativa</li>
+                            <li><i class="fas fa-check"></i> Relatórios de progresso</li>
+                            <li><i class="fas fa-check"></i> Suporte dedicado</li>
+                        </ul>
+                        <a href="/frontend/registro.html?plano=empresa" class="btn btn-secundario">Solicitar Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="/frontend/assets/logos/logo-tk-capital.png" alt="Teca Capital EdTech" height="32">
+                    <p>Educação Financeira Audiovisual Interativa - Aprenda, pratique e certifique-se num único ambiente.</p>
+                    <div class="footer-social">
+                        <a href="https://www.tiktok.com/@tecacapital" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@TecaCapitalInvestimentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://web.facebook.com/people/Teca-Capital-Investimentos/61579163578380/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://tecacapitalinvestimentos.blogspot.com/" target="_blank" rel="noopener noreferrer" aria-label="Blog">
+                            <i class="fas fa-blog"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="/frontend/simulador.html">Simulador</a></li>
+                        <li><a href="/frontend/biblioteca.html">Biblioteca</a></li>
+                        <li><a href="/frontend/pages/provas/provas.html">Certificação</a></li>
+                        <li><a href="/frontend/referencias.html">Referências</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="/frontend/contato.html">Sobre Nós</a></li>
+                        <li><a href="/frontend/contato.html">Contactos</a></li>
+                        <li><a href="mailto:tecacapitaledtech@gmail.com">Email</a></li>
+                        <li><a href="tel:+244974235284">+244 974 235 284</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="https://www.bodiva.ao/" target="_blank" rel="noopener noreferrer">BODIVA</a></li>
+                        <li><a href="https://www.bna.ao/" target="_blank" rel="noopener noreferrer">BNA</a></li>
+                        <li><a href="https://www.investing.com/" target="_blank" rel="noopener noreferrer">Investing.com</a></li>
+                        <li><a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

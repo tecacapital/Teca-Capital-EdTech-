@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Iniciar Prova — Teca Capital EdTech">
+    <title>Iniciar Prova - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/provas.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <div class="header-prova-info">
+                <span class="prova-timer" id="provaTimer">
+                    <i class="fas fa-clock"></i> <span id="tempoRestante">30:00</span>
+                </span>
+                <span class="prova-progresso" id="provaProgresso">
+                    Questão <span id="questaoAtual">1</span> de <span id="totalQuestoes">0</span>
+                </span>
+            </div>
+            <button class="btn btn-sm btn-texto" id="btnSairProva">
+                <i class="fas fa-times"></i> Sair
+            </button>
+        </div>
+    </header>
+
+    <main class="main main-prova">
+        <div class="container">
+            <div class="prova-container">
+                <!-- Cabeçalho da Prova -->
+                <div class="prova-header">
+                    <h2 id="provaTitulo">Título da Prova</h2>
+                    <p id="provaDescricao">Descrição da prova</p>
+                    <div class="prova-meta">
+                        <span class="prova-nivel" id="provaNivel">Iniciante</span>
+                        <span class="prova-questoes" id="provaTotalQuestoes">0 questões</span>
+                    </div>
+                </div>
+
+                <!-- Questão Atual -->
+                <div class="questao-container" id="questaoContainer">
+                    <div class="questao-header">
+                        <span class="questao-numero">Questão <span id="questaoNumero">1</span></span>
+                        <span class="questao-pontos">Valor: <span id="questaoValor">1</span> ponto</span>
+                    </div>
+                    <p class="questao-texto" id="questaoTexto">Texto da questão</p>
+                    <div class="questao-opcoes" id="questaoOpcoes">
+                        <!-- Opções serão inseridas via JS -->
+                    </div>
+                </div>
+
+                <!-- Navegação da Prova -->
+                <div class="prova-navegacao">
+                    <button class="btn btn-secundario" id="btnQuestaoAnterior">
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <div class="prova-indicadores" id="provaIndicadores">
+                        <!-- Indicadores de questões serão inseridos via JS -->
+                    </div>
+                    <button class="btn btn-primario" id="btnQuestaoProxima">
+                        Próxima <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Ações da Prova -->
+                <div class="prova-acoes">
+                    <button class="btn btn-perigo" id="btnFinalizarProva">
+                        <i class="fas fa-flag-checkered"></i> Finalizar Prova
+                    </button>
+                    <button class="btn btn-texto" id="btnLimparResposta">
+                        <i class="fas fa-undo"></i> Limpar Resposta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Confirmação de Finalização -->
+    <div class="modal-overlay" id="modalFinalizar">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 class="titulo">Finalizar Prova</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja finalizar a prova?</p>
+                <p><strong>Questões respondidas:</strong> <span id="respondidas">0</span> de <span id="totais">0</span></p>
+                <p><strong>Questões não respondidas:</strong> <span id="naoRespondidas">0</span></p>
+                <p>As questões não respondidas serão consideradas como erradas.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secundario" data-modal-fechar>Continuar</button>
+                <button class="btn btn-primario" id="btnConfirmarFinalizacao">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Sair da Prova -->
+    <div class="modal-overlay" id="modalSair">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 class="titulo">Sair da Prova</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja sair da prova?</p>
+                <p>Todo o progresso será perdido.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secundario" data-modal-fechar>Continuar</button>
+                <button class="btn btn-perigo" id="btnConfirmarSair">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

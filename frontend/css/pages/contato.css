@@ -1,0 +1,265 @@
+/* ============================================
+   CONTATO — Página de Contactos
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HEADER DA PÁGINA ===== */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xl) 0 var(--espacamento-md);
+}
+
+.page-header h1 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.page-header p {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== SOBRE SECTION ===== */
+.sobre-section {
+  padding: var(--espacamento-xl) 0;
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+}
+
+.sobre-card {
+  text-align: center;
+  padding: var(--espacamento-xl);
+}
+
+.sobre-card-icon {
+  font-size: 40px;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.sobre-card h3 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.sobre-card p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.sobre-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: var(--espacamento-md) 0 0;
+}
+
+.sobre-card ul li {
+  padding: var(--espacamento-xs) 0;
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+}
+
+.sobre-card ul li .fa-check {
+  color: var(--cor-primaria);
+}
+
+/* ===== FUNDADOR ===== */
+.fundador-section {
+  padding: var(--espacamento-xl) 0;
+}
+
+.fundador-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacamento-lg);
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  padding: var(--espacamento-xl);
+  border: 1px solid var(--cor-borda);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fundador-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--cor-primaria-clara);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  color: var(--cor-primaria);
+  border: 3px solid var(--cor-borda-dourada);
+  flex-shrink: 0;
+}
+
+.fundador-info {
+  text-align: center;
+}
+
+.fundador-info h3 {
+  margin-bottom: var(--espacamento-xs);
+}
+
+.fundador-info .fundador-cargo {
+  color: var(--cor-primaria);
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.fundador-info .fundador-descricao {
+  font-size: 14px;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.fundador-info .fundador-origem {
+  font-size: 13px;
+  color: var(--cor-texto-terciario);
+}
+
+.fundador-info .fundador-origem .fa-map-marker-alt {
+  color: var(--cor-primaria);
+}
+
+/* ===== CONTACTOS ===== */
+.contato-section {
+  padding: var(--espacamento-xl) 0;
+}
+
+.contato-section h2 {
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+  max-width: 800px;
+  margin: 0 auto var(--espacamento-xl);
+}
+
+.contato-item {
+  text-align: center;
+  padding: var(--espacamento-xl);
+}
+
+.contato-item-icon {
+  font-size: 32px;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.contato-item h4 {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--espacamento-xs);
+}
+
+.contato-item a {
+  color: var(--cor-texto-primario);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.contato-item a:hover {
+  color: var(--cor-primaria);
+}
+
+/* ===== REDES SOCIAIS ===== */
+.redes-sociais {
+  text-align: center;
+  padding: var(--espacamento-xl) 0;
+}
+
+.redes-sociais h4 {
+  font-size: 18px;
+  margin-bottom: var(--espacamento-md);
+}
+
+.redes-sociais-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.redes-sociais-links .btn {
+  min-width: 120px;
+}
+
+/* ===== FORMULÁRIO DE CONTACTO ===== */
+.contato-form-section {
+  padding: var(--espacamento-xl) 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-form-section h2 {
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.contato-form-section .form-contato .form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+}
+
+.contato-form-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .sobre-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .contato-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .fundador-card {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .fundador-info {
+    text-align: left;
+  }
+  
+  .contato-form-section .form-contato .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .redes-sociais-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .redes-sociais-links .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .fundador-foto {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+}

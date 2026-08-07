@@ -1,0 +1,352 @@
+/* ============================================
+   HOME — Página Inicial
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HERO ===== */
+.hero {
+  padding: 40px 0;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 30% 50%, rgba(214, 174, 100, 0.05) 0%, transparent 70%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  line-height: 1.1;
+}
+
+.hero h1 .destaque {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-primaria-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto var(--espacamento-lg);
+  color: var(--cor-texto-secundario);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-sm);
+  align-items: center;
+}
+
+.hero-actions .btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* ===== BENEFÍCIOS ===== */
+.beneficios {
+  padding: var(--espacamento-xl) 0;
+  background: var(--cor-fundo-secundaria);
+}
+
+.beneficios h2 {
+  text-align: center;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.beneficios-subtitulo {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--espacamento-xl);
+  font-size: 16px;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+}
+
+.card-beneficio {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  transition: all var(--transicao-media);
+}
+
+.card-beneficio:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-borda-dourada);
+  box-shadow: var(--sombra-dourada);
+}
+
+.card-beneficio-icone {
+  font-size: 40px;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.card-beneficio h3 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.card-beneficio p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===== FUNCIONALIDADES ===== */
+.funcionalidades {
+  padding: var(--espacamento-xl) 0;
+}
+
+.funcionalidades h2 {
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.funcionalidades-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+}
+
+.card-funcionalidade {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all var(--transicao-media);
+}
+
+.card-funcionalidade:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-borda-dourada);
+  box-shadow: var(--sombra-dourada);
+}
+
+.card-funcionalidade-destaque {
+  border-color: var(--cor-borda-dourada);
+  background: var(--cor-primaria-clara);
+}
+
+.card-funcionalidade-icone {
+  font-size: 44px;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.card-funcionalidade h3 {
+  margin-bottom: var(--espacamento-sm);
+  color: var(--cor-texto-primario);
+}
+
+.card-funcionalidade p {
+  font-size: 14px;
+  margin: 0 0 var(--espacamento-md);
+}
+
+.card-funcionalidade-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--cor-primaria-clara);
+  color: var(--cor-primaria);
+}
+
+/* ===== PLANOS ===== */
+.planos {
+  padding: var(--espacamento-xl) 0;
+  background: var(--cor-fundo-secundaria);
+}
+
+.planos h2 {
+  text-align: center;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.planos-subtitulo {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto var(--espacamento-xl);
+  font-size: 16px;
+}
+
+.planos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.card-plano {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-plano-destaque {
+  border-color: var(--cor-primaria);
+  box-shadow: var(--sombra-dourada);
+}
+
+.card-plano-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cor-primaria);
+  color: #000000;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 17px;
+}
+
+.card-plano-header {
+  margin-bottom: var(--espacamento-md);
+}
+
+.card-plano-nome {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.card-plano-preco {
+  margin: var(--espacamento-md) 0;
+}
+
+.card-plano-preco .preco-valor {
+  font-family: var(--fonte-monospace);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.card-plano-preco .preco-periodo {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+.card-plano-caracteristicas {
+  list-style: none;
+  text-align: left;
+  margin: var(--espacamento-md) 0;
+  padding: 0;
+  flex: 1;
+}
+
+.card-plano-caracteristicas li {
+  padding: var(--espacamento-sm) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.card-plano-caracteristicas li:last-child {
+  border-bottom: none;
+}
+
+.card-plano-caracteristicas li .fa-check {
+  color: var(--cor-sucesso);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.card-plano-caracteristicas li .fa-times {
+  color: var(--cor-erro);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.card-plano .btn {
+  width: 100%;
+  margin-top: var(--espacamento-md);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .hero {
+    padding: 60px 0;
+    min-height: calc(100vh - 72px);
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+  
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .hero-actions .btn {
+    width: auto;
+  }
+  
+  .beneficios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .funcionalidades-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .planos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 80px 0;
+    min-height: calc(100vh - 72px);
+  }
+  
+  .hero h1 {
+    font-size: 56px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero h1 {
+    font-size: 72px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    padding: 120px 0;
+  }
+  
+  .hero h1 {
+    font-size: 88px;
+  }
+  
+  .hero p {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Perfil do Utilizador — Teca Capital EdTech">
+    <title>Perfil - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/perfil.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+        <div class="container">
+            <div class="perfil-header">
+                <h1>Meu Perfil</h1>
+                <p>Gerencie as suas informações e preferências</p>
+            </div>
+
+            <div class="perfil-layout">
+                <aside class="perfil-sidebar">
+                    <div class="perfil-avatar">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h2 id="perfilNome">Utilizador</h2>
+                        <p id="perfilEmail">email@exemplo.com</p>
+                        <span class="perfil-badge" id="perfilStatus">Gratuito</span>
+                    </div>
+                    <nav class="perfil-nav">
+                        <a href="#dados" class="perfil-nav-item active" data-section="dados">
+                            <i class="fas fa-user-edit"></i> Dados Pessoais
+                        </a>
+                        <a href="#assinatura" class="perfil-nav-item" data-section="assinatura">
+                            <i class="fas fa-credit-card"></i> Assinatura
+                        </a>
+                        <a href="#simulador" class="perfil-nav-item" data-section="simulador">
+                            <i class="fas fa-chart-line"></i> Preferências do Simulador
+                        </a>
+                        <a href="#seguranca" class="perfil-nav-item" data-section="seguranca">
+                            <i class="fas fa-shield-alt"></i> Segurança
+                        </a>
+                    </nav>
+                </aside>
+
+                <div class="perfil-content">
+                    <!-- Dados Pessoais -->
+                    <section class="perfil-section active" id="section-dados">
+                        <h2>Dados Pessoais</h2>
+                        <form id="formDadosPessoais">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="perfilNomeInput">Nome completo</label>
+                                    <input type="text" id="perfilNomeInput" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="perfilTelefone">Telefone (WhatsApp)</label>
+                                    <input type="tel" id="perfilTelefone" placeholder="+244 900 000 000">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="perfilEmailInput">Email</label>
+                                <input type="email" id="perfilEmailInput" placeholder="seu@email.com" disabled>
+                                <span class="helper">O email não pode ser alterado</span>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="perfilPais">País</label>
+                                    <input type="text" id="perfilPais" placeholder="Angola">
+                                    <span class="helper">Ex: Angola, Brasil, Portugal</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="perfilProvincia">Província/Estado</label>
+                                    <input type="text" id="perfilProvincia" placeholder="Luanda">
+                                    <span class="helper">Ex: Luanda, São Paulo, Lisboa</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primario">Salvar Alterações</button>
+                        </form>
+                    </section>
+
+                    <!-- Assinatura -->
+                    <section class="perfil-section" id="section-assinatura">
+                        <h2>Assinatura</h2>
+                        <div class="assinatura-info">
+                            <div class="info-item">
+                                <span class="info-label">Plano atual</span>
+                                <span class="info-valor" id="planoAtual">Gratuito</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-valor" id="statusAssinatura">Ativo</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Próxima renovação</span>
+                                <span class="info-valor" id="proximaRenovacao">—</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Renda mensal</span>
+                                <span class="info-valor" id="rendaMensal">250.000 Kz</span>
+                            </div>
+                            <div class="info-item empresa-info" style="display:none;">
+                                <span class="info-label">Lotes contratados</span>
+                                <span class="info-valor" id="lotesContratados">0</span>
+                            </div>
+                            <div class="info-item empresa-info" style="display:none;">
+                                <span class="info-label">Subutilizadores máximos</span>
+                                <span class="info-valor" id="subutilizadoresMaximos">0</span>
+                            </div>
+                        </div>
+                        <div class="assinatura-acoes">
+                            <a href="/frontend/registro.html?plano=pago" class="btn btn-primario">
+                                <i class="fas fa-crown"></i> Fazer Upgrade
+                            </a>
+                            <a href="/frontend/registro.html?plano=empresa" class="btn btn-secundario">
+                                <i class="fas fa-building"></i> Plano Empresarial
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Preferências do Simulador -->
+                    <section class="perfil-section" id="section-simulador">
+                        <h2>Preferências do Simulador</h2>
+                        <form id="formPreferencias">
+                            <div class="form-group">
+                                <label for="velocidadePadrao">Velocidade padrão</label>
+                                <select id="velocidadePadrao">
+                                    <option value="1">1x (Normal)</option>
+                                    <option value="3">3x</option>
+                                    <option value="5">5x</option>
+                                    <option value="10">10x</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rendaPadrao">Renda mensal padrão</label>
+                                <select id="rendaPadrao">
+                                    <option value="50000">50.000 Kz</option>
+                                    <option value="100000">100.000 Kz</option>
+                                    <option value="250000">250.000 Kz</option>
+                                    <option value="500000">500.000 Kz</option>
+                                    <option value="750000">750.000 Kz</option>
+                                    <option value="1000000">1.000.000 Kz</option>
+                                    <option value="5000000">5.000.000 Kz</option>
+                                    <option value="10000000">10.000.000 Kz</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="notificacoesSimulador" checked>
+                                    <span>Receber notificações de eventos importantes</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primario">Salvar Preferências</button>
+                        </form>
+                    </section>
+
+                    <!-- Segurança -->
+                    <section class="perfil-section" id="section-seguranca">
+                        <h2>Segurança</h2>
+                        <form id="formSeguranca">
+                            <div class="form-group">
+                                <label for="senhaAtual">Senha atual</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="senhaAtual" placeholder="••••••••">
+                                    <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="novaSenha">Nova senha</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="novaSenha" placeholder="•••••••• (mínimo 8 caracteres)" minlength="8">
+                                    <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmarSenha">Confirmar nova senha</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmarSenha" placeholder="••••••••">
+                                    <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primario">Alterar Senha</button>
+                        </form>
+
+                        <div class="perfil-actions">
+                            <hr>
+                            <button class="btn btn-perigo" id="btnExcluirConta">
+                                <i class="fas fa-trash"></i> Excluir Conta
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal-overlay" id="modalExcluirConta">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 class="titulo">Excluir Conta</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Atenção:</strong> Esta ação é irreversível.</p>
+                <p>Ao excluir a sua conta, todos os dados associados serão permanentemente removidos.</p>
+                <p>Digite <strong>EXCLUIR</strong> para confirmar.</p>
+                <div class="form-group">
+                    <input type="text" id="confirmarExclusao" placeholder="Digite EXCLUIR">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secundario" data-modal-fechar>Cancelar</button>
+                <button class="btn btn-perigo" id="btnConfirmarExclusao" disabled>Excluir Conta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

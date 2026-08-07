@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Biblioteca de Áudios — Teca Capital EdTech">
+    <title>Áudios - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/biblioteca.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html" class="active">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend./contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- ===== MENU MOBILE (fullscreen) ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <nav class="biblioteca-subnav" aria-label="Navegação da Biblioteca">
+                <a href="/frontend/biblioteca.html" class="biblioteca-subnav-link">
+                    <i class="fas fa-th"></i> Todos
+                </a>
+                <a href="/frontend/pages/biblioteca/biblioteca-videos.html" class="biblioteca-subnav-link">
+                    <i class="fas fa-video"></i> Vídeos
+                </a>
+                <a href="/frontend/pages/biblioteca/biblioteca-audios.html" class="biblioteca-subnav-link active">
+                    <i class="fas fa-headphones"></i> Áudios
+                </a>
+                <a href="/frontend/pages/biblioteca/biblioteca-ebooks.html" class="biblioteca-subnav-link">
+                    <i class="fas fa-book"></i> E-books
+                </a>
+                <a href="/frontend/pages/biblioteca/biblioteca-imagens.html" class="biblioteca-subnav-link">
+                    <i class="fas fa-image"></i> Infográficos
+                </a>
+                <a href="/frontend/pages/biblioteca/biblioteca.html#favoritos" class="biblioteca-subnav-link">
+                    <i class="fas fa-heart"></i> Favoritos
+                </a>
+            </nav>
+
+            <div class="biblioteca-page-header">
+                <h1>Áudios e Podcasts</h1>
+                <p>Ouça conteúdos em áudio sobre finanças, economia e mercados</p>
+            </div>
+
+            <div class="upgrade-banner" id="upgradeBanner" style="display:none;">
+                <div class="upgrade-banner-content">
+                    <i class="fas fa-lock"></i>
+                    <div>
+                        <h3>Conteúdos exclusivos para contas pagas</h3>
+                        <p>Faça upgrade para aceder a toda a Biblioteca Multimídia.</p>
+                    </div>
+                    <a href="../../registro.html?plano=pago" class="btn btn-primario">Fazer Upgrade</a>
+                </div>
+            </div>
+
+            <div class="biblioteca-filtros" id="bibliotecaFiltros">
+                <button class="filtro-btn active" data-categoria="todos">Todas</button>
+                <button class="filtro-btn" data-categoria="investimentos">Investimentos</button>
+                <button class="filtro-btn" data-categoria="economia">Economia</button>
+                <button class="filtro-btn" data-categoria="mercados">Mercados</button>
+                <button class="filtro-btn" data-categoria="analise">Análise Financeira</button>
+                <button class="filtro-btn" data-categoria="estrategias">Estratégias</button>
+                <button class="filtro-btn" data-categoria="risco">Gestão de Risco</button>
+            </div>
+
+            <div class="biblioteca-busca">
+                <input type="text" id="buscaConteudo" placeholder="Buscar áudios..." class="input-busca">
+                <button class="btn btn-primario" id="btnBuscar"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="biblioteca-grid" id="bibliotecaGrid">
+                <!-- Conteúdos serão inseridos via JS -->
+            </div>
+
+            <div class="paginacao" id="paginacao">
+                <button class="btn btn-sm btn-texto" id="paginaAnterior" disabled>
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <span id="paginaInfo">Página 1 de 1</span>
+                <button class="btn btn-sm btn-texto" id="paginaProxima" disabled>
+                    Próxima <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal do Player de Áudio -->
+    <div class="modal-overlay modal-player" id="modalAudio">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 class="titulo" id="modalAudioTitulo">Áudio</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="audio-player">
+                    <div class="audio-cover" id="audioCover">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="audio-controls">
+                        <button id="btnAudioPlay" class="audio-btn"><i class="fas fa-play"></i></button>
+                        <span id="audioTempo" class="audio-tempo">0:00 / 0:00</span>
+                        <input type="range" id="audioProgresso" min="0" max="100" value="0" class="audio-progresso">
+                        <button id="btnAudioVolume" class="audio-btn"><i class="fas fa-volume-up"></i></button>
+                        <input type="range" id="audioVolume" min="0" max="100" value="80" class="audio-volume">
+                    </div>
+                    <audio id="audioPlayer" preload="metadata">
+                        <source src="" type="audio/mpeg">
+                    </audio>
+                    <p id="audioDescricao" class="audio-descricao"></p>
+                    <div class="audio-acoes">
+                        <button class="btn btn-sm btn-texto" id="btnFavoritarAudio">
+                            <i class="fas fa-heart"></i> Favoritar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

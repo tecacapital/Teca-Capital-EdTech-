@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Referências Financeiras — Teca Capital EdTech">
+    <title>Referências Financeiras - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/referencias.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+    <link rel="stylesheet" href="/frontend/css/pages/referencias.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html" class="active">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario btn-sm">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario btn-sm">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- ===== MENU MOBILE (fullscreen) ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1>Referências e Fontes de Mercado</h1>
+                <p>Recursos oficiais para complementar a sua aprendizagem com dados reais do mercado financeiro</p>
+            </div>
+
+            <!-- Mercado Angolano -->
+            <section class="referencias-section">
+                <h2><i class="fas fa-flag"></i> Mercado Angolano</h2>
+                <div class="referencias-grid">
+                    <a href="https://www.bodiva.ao/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h3>BODIVA</h3>
+                            <p>Bolsa de Dívida e Valores de Angola: mercado de capitais, ações, títulos</p>
+                            <span class="card-referencia-link">bodiva.ao <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.bna.ao/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h3>Banco Nacional de Angola (BNA)</h3>
+                            <p>Política monetária, juros, câmbio, inflação</p>
+                            <span class="card-referencia-link">bna.ao <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Mercados Internacionais -->
+            <section class="referencias-section">
+                <h2><i class="fas fa-globe"></i> Mercados Internacionais e Dados Económicos</h2>
+                <div class="referencias-grid">
+                    <a href="https://www.investing.com/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Investing.com</h3>
+                            <p>Ações internacionais, índices, commodities, câmbio</p>
+                            <span class="card-referencia-link">investing.com <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://tradingeconomics.com/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h3>Trading Economics</h3>
+                            <p>Indicadores económicos internacionais</p>
+                            <span class="card-referencia-link">tradingeconomics.com <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div>
+                            <h3>Banco Mundial</h3>
+                            <p>Dados históricos de desenvolvimento económico</p>
+                            <span class="card-referencia-link">worldbank.org <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.imf.org/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div>
+                            <h3>FMI</h3>
+                            <p>Relatórios e projeções macroeconómicas</p>
+                            <span class="card-referencia-link">imf.org <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Criptomoedas -->
+            <section class="referencias-section">
+                <h2><i class="fab fa-bitcoin"></i> Criptomoedas</h2>
+                <div class="referencias-grid">
+                    <a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-coin"></i>
+                        </div>
+                        <div>
+                            <h3>CoinMarketCap</h3>
+                            <p>Preço, capitalização, volume, ranking de criptomoedas</p>
+                            <span class="card-referencia-link">coinmarketcap.com <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.binance.com/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Binance</h3>
+                            <p>Exchange de criptomoedas</p>
+                            <span class="card-referencia-link">binance.com <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.kucoin.com/" target="_blank" rel="noopener noreferrer" class="card card-referencia">
+                        <div class="card-referencia-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div>
+                            <h3>KuCoin</h3>
+                            <p>Exchange de criptomoedas</p>
+                            <span class="card-referencia-link">kucoin.com <i class="fas fa-external-link-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

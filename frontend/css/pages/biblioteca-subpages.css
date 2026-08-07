@@ -1,0 +1,101 @@
+/* ============================================
+   BIBLIOTECA — Subpáginas (Vídeos, Áudios, etc.)
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== SUBNAVEGAÇÃO ===== */
+.biblioteca-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-xl);
+  border-bottom: 1px solid var(--cor-borda);
+  padding-bottom: var(--espacamento-sm);
+}
+
+.biblioteca-subnav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: 8px 16px;
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transicao-rapida);
+}
+
+.biblioteca-subnav-link:hover {
+  color: var(--cor-texto-primario);
+  background: var(--cor-fundo);
+}
+
+.biblioteca-subnav-link.active {
+  color: var(--cor-texto-primario);
+  background: var(--cor-primaria-clara);
+}
+
+.biblioteca-subnav-link .fa-heart {
+  color: var(--cor-erro);
+}
+
+/* ===== HEADER DA PÁGINA ===== */
+.biblioteca-page-header {
+  text-align: center;
+  padding: var(--espacamento-lg) 0 var(--espacamento-xl);
+}
+
+.biblioteca-page-header h1 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.biblioteca-page-header p {
+  font-size: 16px;
+  color: var(--cor-texto-secundario);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== PAGINAÇÃO ===== */
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-lg) 0;
+}
+
+.paginacao .btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.paginacao #paginaInfo {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  min-width: 120px;
+  text-align: center;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 767px) {
+  .biblioteca-subnav {
+    justify-content: center;
+  }
+  
+  .biblioteca-subnav-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .paginacao {
+    flex-wrap: wrap;
+    gap: var(--espacamento-sm);
+  }
+  
+  .paginacao .btn {
+    flex: 1;
+    min-width: 80px;
+  }
+}

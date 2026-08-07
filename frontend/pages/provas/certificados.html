@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Meus Certificados — Teca Capital EdTech">
+    <title>Meus Certificados - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend/css/layout.css">
+    <link rel="stylesheet" href="/frontend/css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/provas.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html" class="active">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- ===== MENU MOBILE (fullscreen) ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="certificados-header">
+                <h1>Meus Certificados</h1>
+                <p>Histórico de certificados emitidos</p>
+            </div>
+
+            <nav class="provas-subnav" aria-label="Navegação de Provas">
+                <a href="/frontend/pages/provas/provas.html" class="provas-subnav-link">
+                    <i class="fas fa-clipboard-list"></i> Provas Disponíveis
+                </a>
+                <a href="certificados.html" class="provas-subnav-link active">
+                    <i class="fas fa-certificate"></i> Meus Certificados
+                </a>
+            </nav>
+
+            <!-- Resumo de Certificados -->
+            <div class="certificados-resumo" id="certificadosResumo">
+                <div class="resumo-item">
+                    <span class="resumo-label">Total de Certificados</span>
+                    <span class="resumo-valor" id="totalCertificados">0</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Nível Iniciante</span>
+                    <span class="resumo-valor" id="certificadosIniciante">0</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Nível Intermediário</span>
+                    <span class="resumo-valor" id="certificadosIntermediario">0</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Nível Avançado</span>
+                    <span class="resumo-valor" id="certificadosAvancado">0</span>
+                </div>
+            </div>
+
+            <!-- Lista de Certificados -->
+            <div class="certificados-grid" id="certificadosGrid">
+                <!-- Certificados serão inseridos via JS -->
+            </div>
+
+            <!-- Sem Certificados -->
+            <div class="certificados-empty" id="certificadosEmpty" style="display:none;">
+                <i class="fas fa-certificate"></i>
+                <h3>Nenhum certificado ainda</h3>
+                <p>Complete uma prova para receber o seu primeiro certificado.</p>
+                <a href="provas.html" class="btn btn-primario">Ver Provas Disponíveis</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal do Certificado (detalhes) -->
+    <div class="modal-overlay" id="modalCertificadoDetalhes">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3 class="titulo">Certificado</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="certificado-preview" id="certificadoPreviewDetalhes">
+                    <!-- Conteúdo do certificado será inserido via JS -->
+                </div>
+                <div class="certificado-acoes">
+                    <button class="btn btn-primario" id="btnDownloadCertificadoDetalhes">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                    <button class="btn btn-texto" id="btnCompartilharCertificado">
+                        <i class="fas fa-share-alt"></i> Compartilhar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

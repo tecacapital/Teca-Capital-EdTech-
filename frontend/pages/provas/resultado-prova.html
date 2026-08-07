@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Resultado da Prova — Teca Capital EdTech">
+    <title>Resultado - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="/frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/frontend/css/global.css">
+    <link rel="stylesheet" href="/frontend//css/layout.css">
+    <link rel="stylesheet" href="/frontend//css/components.css">
+    <link rel="stylesheet" href="/frontend/css/pages/provas.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/frontend/index.html">
+                    <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="36">
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="/frontend/index.html">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html" class="active">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- ===== MENU MOBILE (fullscreen) ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="/frontend/index.html" class="active">Início</a>
+                <a href="/frontend/simulador.html">Simulador</a>
+                <a href="/frontend/biblioteca.html">Biblioteca</a>
+                <a href="/frontend/pages/provas/provas.html">Certificação</a>
+                <a href="/frontend/referencias.html">Referências</a>
+                <a href="/frontend/contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="/frontend/login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="/frontend/registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="resultado-container">
+                <!-- Cabeçalho do Resultado -->
+                <div class="resultado-header" id="resultadoHeader">
+                    <div class="resultado-icon" id="resultadoIcon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1 id="resultadoTitulo">Prova Concluída!</h1>
+                    <p id="resultadoSubtitulo">Parabéns! Você concluiu a prova com sucesso.</p>
+                </div>
+
+                <!-- Resumo da Pontuação -->
+                <div class="resultado-resumo">
+                    <div class="resultado-score">
+                        <span class="score-label">Pontuação</span>
+                        <span class="score-value" id="scoreValor">0%</span>
+                    </div>
+                    <div class="resultado-detalhes">
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Acertos</span>
+                            <span class="detalhe-valor" id="acertos">0</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Erros</span>
+                            <span class="detalhe-valor" id="erros">0</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Total</span>
+                            <span class="detalhe-valor" id="totalQuestoes">0</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Tempo</span>
+                            <span class="detalhe-valor" id="tempoGasto">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status da Aprovação -->
+                <div class="resultado-status" id="resultadoStatus">
+                    <div class="status-badge" id="statusBadge">
+                        <i class="fas fa-certificate"></i>
+                        <span id="statusTexto">Aprovado</span>
+                    </div>
+                    <p id="statusMensagem">Parabéns! Você atingiu a pontuação mínima necessária.</p>
+                </div>
+
+                <!-- Ações -->
+                <div class="resultado-acoes">
+                    <button class="btn btn-primario" id="btnVerDetalhes">
+                        <i class="fas fa-list"></i> Ver Detalhes
+                    </button>
+                    <button class="btn btn-secundario" id="btnVerCertificado">
+                        <i class="fas fa-download"></i> Ver Certificado
+                    </button>
+                    <a href="/frontend/pages/provas/provas.html" class="btn btn-texto">
+                        <i class="fas fa-arrow-left"></i> Voltar às Provas
+                    </a>
+                </div>
+
+                <!-- Detalhes das Questões (oculto inicialmente) -->
+                <div class="resultado-detalhes-questoes" id="resultadoDetalhes" style="display:none;">
+                    <h3>Revisão das Questões</h3>
+                    <div id="questoesRevisao">
+                        <!-- Questões serão inseridas via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal do Certificado -->
+    <div class="modal-overlay" id="modalCertificado">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3 class="titulo">Certificado</h3>
+                <button class="fechar" data-modal-fechar aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="certificado-preview" id="certificadoPreview">
+                    <div class="certificado-conteudo">
+                        <div class="certificado-header">
+                            <img src="/frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="60">
+                            <h1>Certificado de Conclusão</h1>
+                        </div>
+                        <div class="certificado-body">
+                            <p>Certificamos que</p>
+                            <h2 id="certificadoNome">Nome do Utilizador</h2>
+                            <p>concluiu com sucesso a prova</p>
+                            <h3 id="certificadoProva">Nome da Prova</h3>
+                            <p>com a pontuação de</p>
+                            <h2 id="certificadoPontuacao">0%</h2>
+                            <p>em <span id="certificadoData">00/00/0000</span></p>
+                        </div>
+                        <div class="certificado-footer">
+                            <span>Alberto Teca Tomás</span>
+                            <span>Administrador Principal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificado-acoes">
+                    <button class="btn btn-primario" id="btnDownloadCertificado">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/frontend/js/main.js"></script>
+</body>
+</html>

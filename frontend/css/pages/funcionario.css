@@ -1,0 +1,174 @@
+/* ============================================
+   FUNCIONÁRIO — Painel do Funcionário
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HEADER ===== */
+.header-funcionario {
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(214, 174, 100, 0.2);
+}
+
+.header-funcionario .header-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000;
+  background: var(--cor-primaria);
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-left: var(--espacamento-sm);
+}
+
+.header-funcionario .funcionario-user {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+/* ===== LAYOUT ===== */
+.funcionario-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+  padding: var(--espacamento-md) 0;
+}
+
+/* ===== SIDEBAR ===== */
+.funcionario-sidebar {
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  border: 1px solid var(--cor-borda);
+  padding: var(--espacamento-md);
+  overflow-x: auto;
+}
+
+.funcionario-nav {
+  display: flex;
+  gap: var(--espacamento-sm);
+  flex-wrap: wrap;
+}
+
+.funcionario-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: 8px 16px;
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-secundario);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transicao-rapida);
+  white-space: nowrap;
+  min-height: 40px;
+}
+
+.funcionario-nav-item:hover {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+}
+
+.funcionario-nav-item.active {
+  background: var(--cor-primaria);
+  color: #000000;
+}
+
+.funcionario-nav-item .badge {
+  background: var(--cor-erro);
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* ===== CONTENT ===== */
+.funcionario-content {
+  background: var(--cor-fundo-secundaria);
+  border-radius: var(--raio-borda-grande);
+  border: 1px solid var(--cor-borda);
+  padding: var(--espacamento-md);
+  min-height: 400px;
+}
+
+.funcionario-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.funcionario-section.active {
+  display: block;
+}
+
+.funcionario-section h2 {
+  font-size: 20px;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.funcionario-section .section-desc {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--espacamento-md);
+}
+
+/* ===== BUSCA ===== */
+.funcionario-busca {
+  display: flex;
+  gap: var(--espacamento-sm);
+  margin-bottom: var(--espacamento-md);
+}
+
+.funcionario-busca .input-busca {
+  flex: 1;
+  padding: 10px 14px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-primario);
+  font-size: 14px;
+}
+
+.funcionario-busca .input-busca:focus {
+  border-color: var(--cor-primaria);
+  outline: none;
+}
+
+/* ===== TABELA ===== */
+#section-pagamentos .tabela td:last-child {
+  display: flex;
+  gap: var(--espacamento-xs);
+  flex-wrap: wrap;
+}
+
+#section-pagamentos .tabela .btn {
+  font-size: 11px;
+  padding: 4px 10px;
+  min-height: 28px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 768px) {
+  .funcionario-layout {
+    grid-template-columns: 200px 1fr;
+  }
+  
+  .funcionario-nav {
+    flex-direction: column;
+  }
+  
+  .funcionario-nav-item {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .funcionario-sidebar {
+    overflow-x: auto;
+  }
+  
+  .funcionario-nav {
+    flex-wrap: nowrap;
+  }
+}

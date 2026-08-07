@@ -1,0 +1,121 @@
+/* ============================================
+   THEME LIGHT — Tema Claro (Alternativo)
+   Teca Capital EdTech
+   ============================================ */
+
+:root {
+  /* Cores do tema claro */
+  --cor-fundo: #F5F5F5;
+  --cor-fundo-secundaria: #FFFFFF;
+  --cor-fundo-terciaria: #F0F0F0;
+  --cor-fundo-quaternaria: #E8E8E8;
+  
+  --cor-texto-primario: #1A1A1A;
+  --cor-texto-secundario: #555555;
+  --cor-texto-terciario: #888888;
+  
+  --cor-borda: rgba(0, 0, 0, 0.08);
+  --cor-borda-dourada: rgba(214, 174, 100, 0.3);
+  
+  --cor-sombra: rgba(0, 0, 0, 0.08);
+}
+
+/* Aplicação automática (usando classe no body) */
+body.theme-light {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+}
+
+body.theme-light .card,
+body.theme-light .painel,
+body.theme-light .modal,
+body.theme-light .perfil-sidebar,
+body.theme-light .perfil-content {
+  background: var(--cor-fundo-secundaria);
+  border-color: var(--cor-borda);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-light input,
+body.theme-light select,
+body.theme-light textarea {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  border-color: var(--cor-borda);
+}
+
+body.theme-light input:focus,
+body.theme-light select:focus,
+body.theme-light textarea:focus {
+  border-color: var(--cor-primaria);
+}
+
+body.theme-light .tabela thead {
+  background: var(--cor-fundo-terciaria);
+}
+
+body.theme-light .tabela td {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+
+body.theme-light .tabela tr:hover td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.theme-light .nav-principal a {
+  color: var(--cor-texto-secundario);
+}
+
+body.theme-light .nav-principal a:hover,
+body.theme-light .nav-principal a.active {
+  color: var(--cor-texto-primario);
+}
+
+body.theme-light .header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: var(--cor-borda);
+}
+
+body.theme-light .footer {
+  background: var(--cor-fundo-secundaria);
+  border-top-color: var(--cor-borda);
+}
+
+body.theme-light .menu-mobile-overlay {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+body.theme-light .menu-mobile-nav a {
+  color: var(--cor-texto-secundario);
+}
+
+body.theme-light .menu-mobile-nav a:hover,
+body.theme-light .menu-mobile-nav a.active {
+  color: var(--cor-texto-primario);
+}
+
+body.theme-light .toast {
+  background: var(--cor-fundo-secundaria);
+  border-color: var(--cor-borda);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-light .certificado-preview {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* ===== TOGGLE DE TEMA ===== */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  font-size: 18px;
+  padding: var(--espacamento-xs);
+  transition: color var(--transicao-rapida);
+}
+
+.theme-toggle:hover {
+  color: var(--cor-primaria);
+}

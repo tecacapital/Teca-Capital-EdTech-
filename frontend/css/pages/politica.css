@@ -1,0 +1,144 @@
+/* ============================================
+   POLÍTICA DE PRIVACIDADE — Página
+   Teca Capital EdTech
+   ============================================ */
+
+/* ===== HEADER ===== */
+.legal-header {
+  text-align: center;
+  padding: var(--espacamento-xl) 0 var(--espacamento-md);
+}
+
+.legal-header h1 {
+  margin-bottom: var(--espacamento-sm);
+}
+
+.legal-header p {
+  font-size: 14px;
+  color: var(--cor-texto-secundario);
+}
+
+/* ===== CONTEÚDO ===== */
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: var(--espacamento-xl);
+}
+
+/* ===== SECÇÕES ===== */
+.legal-section {
+  margin-bottom: var(--espacamento-xl);
+  padding-bottom: var(--espacamento-xl);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.legal-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.legal-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: var(--espacamento-md);
+  color: var(--cor-primaria);
+}
+
+.legal-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: var(--espacamento-md);
+  margin-bottom: var(--espacamento-sm);
+  color: var(--cor-texto-primario);
+}
+
+.legal-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--espacamento-md);
+}
+
+.legal-section ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--espacamento-md) 0;
+}
+
+.legal-section ul li {
+  padding: var(--espacamento-sm) 0;
+  padding-left: var(--espacamento-xl);
+  position: relative;
+  color: var(--cor-texto-secundario);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.legal-section ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--cor-primaria);
+}
+
+.legal-section ul li strong {
+  color: var(--cor-texto-primario);
+}
+
+.legal-section a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
+/* ===== BADGE LEGISLAÇÃO ===== */
+.legal-badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin: var(--espacamento-xs) var(--espacamento-xs) 0 0;
+}
+
+.legal-badge.angola {
+  background: rgba(214, 174, 100, 0.2);
+  color: var(--cor-primaria);
+}
+
+.legal-badge.brazil {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.legal-badge.eu {
+  background: rgba(33, 150, 243, 0.2);
+  color: #2196F3;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .legal-header h1 {
+    font-size: 28px;
+  }
+
+  .legal-section h2 {
+    font-size: 18px;
+  }
+
+  .legal-section h3 {
+    font-size: 15px;
+  }
+
+  .legal-section p {
+    font-size: 14px;
+  }
+
+  .legal-section ul li {
+    font-size: 13px;
+  }
+}
