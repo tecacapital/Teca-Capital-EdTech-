@@ -2,27 +2,21 @@
  * api.js — Camada de Comunicação HTTP
  * Teca Capital EdTech
  * 
- * Responsabilidade: Centralizar todas as chamadas fetch ao backend,
- * com tratamento de autenticação, erros e retry.
- * 
- * 🌐 API em Produção: https://teca-capital-api.onrender.com
+ * 🌐 API em Produção (Render): https://teca-capital-api.onrender.com
  */
 
-// ============================================
-// ✅ URL BASE DA API EM PRODUÇÃO
-// ============================================
-const API_BASE_URL = 'https://teca-capital-api.onrender.com';
+// ✅ IMPORTAR CONFIGURAÇÕES
+import config from './config.js';
 
 // ============================================
-// ⚠️ URLS PARA AMBIENTES DE DESENVOLVIMENTO
-// (descomentar conforme necessário)
+// URL BASE DA API (forçada para Render)
 // ============================================
-// const API_BASE_URL = 'http://localhost:3000';  // Desenvolvimento local
-// const API_BASE_URL = 'https://teca-capital-api.onrender.com';  // Produção
+const API_BASE_URL = config.apiBaseUrl;
 
-/**
- * Configuração padrão para requisições
- */
+// ============================================
+// CONFIGURAÇÕES PADRÃO
+// ============================================
+
 const defaultConfig = {
   headers: {
     'Content-Type': 'application/json',
@@ -60,6 +54,16 @@ async function handleResponse(response) {
   }
 
   if (!response.ok) {
+    // Tratamento específico para erro 401
+    if (response.status === 401) {
+      localStorage.removeItem('jwt_token');
+      localStorage.removeItem('user_data');
+      
+      if (!window.location.pathname.includes('login')) {
+        window.location.href = '/frontend/login.html';
+      }
+    }
+
     const error = new Error(data.mensagem || `Erro ${response.status}`);
     error.status = response.status;
     error.data = data;
@@ -166,7 +170,10 @@ async function upload(endpoint, formData, options = {}) {
   return handleResponse(response);
 }
 
-// API pública
+// ============================================
+// EXPORTAÇÕES
+// ============================================
+
 export const api = {
   get,
   post,
@@ -175,6 +182,7 @@ export const api = {
   delete: del,
   upload,
   getToken,
-  // URL base exposta para debug
   BASE_URL: API_BASE_URL,
 };
+
+export { API_BASE_URL };
