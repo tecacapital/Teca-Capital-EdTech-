@@ -87,6 +87,22 @@
     <!-- ===== MAIN CONTENT (SIMULADOR) ===== -->
     <main class="main main-simulador">
         <div class="container-fluid">
+            <!-- ===== SUBNAVEGAÇÃO DO SIMULADOR ===== -->
+            <nav class="simulador-subnav" aria-label="Navegação do Simulador">
+                <a href="simulador.html" class="simulador-subnav-link active">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="mercados.html" class="simulador-subnav-link">
+                    <i class="fas fa-chart-bar"></i> Mercados
+                </a>
+                <a href="carteira.html" class="simulador-subnav-link">
+                    <i class="fas fa-wallet"></i> Carteira
+                </a>
+                <a href="historico.html" class="simulador-subnav-link">
+                    <i class="fas fa-history"></i> Histórico
+                </a>
+            </nav>
+
             <!-- Dashboard Principal -->
             <div class="simulador-dashboard" id="simuladorDashboard">
                 <!-- Painel da Carteira -->
@@ -94,6 +110,9 @@
                     <div class="painel-header">
                         <h2><i class="fas fa-wallet"></i> Carteira</h2>
                         <span class="painel-saldo-total" id="saldoTotal">0,00 Kz</span>
+                        <a href="carteira.html" class="btn btn-sm btn-texto" aria-label="Ver detalhes da carteira">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     <div class="carteira-saldos">
                         <div class="carteira-item">
@@ -113,6 +132,9 @@
                         <button class="btn btn-sm btn-secundario" id="btnCredito">
                             <i class="fas fa-hand-holding-usd"></i> Crédito
                         </button>
+                        <a href="carteira.html" class="btn btn-sm btn-texto">
+                            <i class="fas fa-external-link-alt"></i> Ver Carteira
+                        </a>
                     </div>
                 </section>
 
@@ -134,18 +156,21 @@
                 <section class="painel painel-mercado" aria-label="Mercado">
                     <div class="painel-header">
                         <h2><i class="fas fa-chart-bar"></i> Mercado</h2>
-                        <div class="mercado-filtros">
-                            <input type="text" class="input-busca" id="buscaAtivos" placeholder="Buscar ativo...">
-                            <select class="select-filtro" id="filtroMercado">
-                                <option value="todos">Todos os mercados</option>
-                                <option value="angola">Angola</option>
-                                <option value="eua">EUA</option>
-                                <option value="europa">Europa</option>
-                                <option value="china">China</option>
-                                <option value="japao">Japão</option>
-                                <option value="brasil">Brasil</option>
-                            </select>
-                        </div>
+                        <a href="mercados.html" class="btn btn-sm btn-texto" aria-label="Ver todos os mercados">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="mercado-filtros">
+                        <input type="text" class="input-busca" id="buscaAtivos" placeholder="Buscar ativo...">
+                        <select class="select-filtro" id="filtroMercado">
+                            <option value="todos">Todos os mercados</option>
+                            <option value="angola">Angola</option>
+                            <option value="eua">EUA</option>
+                            <option value="europa">Europa</option>
+                            <option value="china">China</option>
+                            <option value="japao">Japão</option>
+                            <option value="brasil">Brasil</option>
+                        </select>
                     </div>
                     <div class="tabela-wrapper">
                         <table class="tabela tabela-ativos" id="tabelaAtivos">
@@ -160,6 +185,11 @@
                             </thead>
                             <tbody id="listaAtivos"></tbody>
                         </table>
+                    </div>
+                    <div class="mercado-ver-todos">
+                        <a href="mercados.html" class="btn btn-texto btn-full">
+                            <i class="fas fa-arrow-right"></i> Ver todos os ativos
+                        </a>
                     </div>
                 </section>
 
@@ -176,6 +206,9 @@
                 <section class="painel painel-posicoes" aria-label="Posições">
                     <div class="painel-header">
                         <h2><i class="fas fa-list"></i> Posições</h2>
+                        <a href="carteira.html" class="btn btn-sm btn-texto" aria-label="Ver todas as posições">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                         <div class="posicoes-resumo">
                             <span>Total Investido: <strong id="totalInvestido">0,00</strong></span>
                             <span>Ganho/Perda: <strong id="ganhoPerda" class="positivo">+0,00%</strong></span>
@@ -196,15 +229,28 @@
                             <tbody id="listaPosicoes"></tbody>
                         </table>
                     </div>
+                    <div class="posicoes-ver-todas">
+                        <a href="carteira.html" class="btn btn-texto btn-full">
+                            <i class="fas fa-arrow-right"></i> Ver todas as posições
+                        </a>
+                    </div>
                 </section>
 
                 <!-- Painel de Histórico (mobile) -->
                 <section class="painel painel-historico" aria-label="Histórico" style="display:none;">
                     <div class="painel-header">
                         <h2><i class="fas fa-history"></i> Histórico</h2>
+                        <a href="historico.html" class="btn btn-sm btn-texto" aria-label="Ver histórico completo">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                     <div class="historico-lista" id="historicoTransacoes"></div>
                     <button class="btn btn-texto btn-full" id="btnVerMaisHistorico">Ver mais</button>
+                    <div class="historico-ver-todos">
+                        <a href="historico.html" class="btn btn-texto btn-full">
+                            <i class="fas fa-arrow-right"></i> Ver histórico completo
+                        </a>
+                    </div>
                 </section>
             </div>
         </div>
@@ -220,24 +266,24 @@
             <button class="btn btn-sm btn-texto" data-velocidade="10">10x</button>
         </div>
 
-        <!-- Navegação Mobile (abas inferiores) -->
+        <!-- Navegação Mobile (abas inferiores) — ATUALIZADA -->
         <nav class="nav-mobile" id="navMobile" role="navigation" aria-label="Navegação mobile do simulador">
-            <button class="nav-mobile-item active" data-painel="carteira">
+            <a href="simulador.html" class="nav-mobile-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="mercados.html" class="nav-mobile-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Mercados</span>
+            </a>
+            <a href="carteira.html" class="nav-mobile-item">
                 <i class="fas fa-wallet"></i>
                 <span>Carteira</span>
-            </button>
-            <button class="nav-mobile-item" data-painel="mercado">
-                <i class="fas fa-chart-bar"></i>
-                <span>Mercado</span>
-            </button>
-            <button class="nav-mobile-item" data-painel="noticias">
-                <i class="fas fa-newspaper"></i>
-                <span>Notícias</span>
-            </button>
-            <button class="nav-mobile-item" data-painel="historico">
+            </a>
+            <a href="historico.html" class="nav-mobile-item">
                 <i class="fas fa-history"></i>
                 <span>Histórico</span>
-            </button>
+            </a>
         </nav>
     </main>
 
@@ -269,7 +315,8 @@
         </div>
     </div>
 
+    <!-- ===== SCRIPTS ===== -->
     <script type="module" src="frontend/js/main.js"></script>
-
+</body>
 </html>
     

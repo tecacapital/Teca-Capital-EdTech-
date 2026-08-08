@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Carteira — Simulador Teca Capital EdTech">
+    <title>Carteira - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="frontend/css/global.css">
+    <link rel="stylesheet" href="frontend/css/layout.css">
+    <link rel="stylesheet" href="frontend/css/components.css">
+    <link rel="stylesheet" href="frontend/css/pages/simulador.css">
+    <link rel="stylesheet" href="frontend/css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header header-simulador" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="frontend/assets/logos/Teca%20Capital%20Logotipo%20sem%20fundo.png" alt="Teca Capital EdTech" height="32">
+                </a>
+            </div>
+            <div class="header-simulador-info">
+                <span class="relogio" id="relogioSimulador">
+                    <i class="fas fa-calendar-day"></i>
+                    <span id="dataSimulada">01/01/2025</span>
+                </span>
+                <span class="velocidade-indicador" id="velocidadeIndicador">
+                    <i class="fas fa-clock"></i>
+                    <span id="velocidadeAtual">1x</span>
+                </span>
+                <button class="btn btn-sm btn-texto" id="btnPerfil" aria-label="Perfil">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="home.html">Início</a>
+                <a href="simulador.html" class="active">Simulador</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="pages/provas/provas.html">Certificação</a>
+                <a href="referencias.html">Referências</a>
+                <a href="contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="home.html">Início</a>
+                <a href="simulador.html" class="active">Simulador</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="pages/provas/provas.html">Certificação</a>
+                <a href="referencias.html">Referências</a>
+                <a href="contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="login.html" class="btn btn-secundario">Entrar</a>
+                    <a href=" registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="main main-simulador">
+        <div class="container-fluid">
+            <!-- Navegação do Simulador -->
+            <nav class="simulador-subnav" aria-label="Navegação do Simulador">
+                <a href="simulador.html" class="simulador-subnav-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="mercados.html" class="simulador-subnav-link">
+                    <i class="fas fa-chart-bar"></i> Mercados
+                </a>
+                <a href="carteira.html" class="simulador-subnav-link active">
+                    <i class="fas fa-wallet"></i> Carteira
+                </a>
+                <a href="historico.html" class="simulador-subnav-link">
+                    <i class="fas fa-history"></i> Histórico
+                </a>
+            </nav>
+
+            <!-- Cabeçalho da página -->
+            <div class="carteira-header">
+                <h1>Carteira de Investimentos</h1>
+                <p>Gerencie a sua carteira e acompanhe a evolução dos seus ativos</p>
+            </div>
+
+            <!-- Resumo da Carteira -->
+            <div class="carteira-resumo">
+                <div class="resumo-card">
+                    <span class="resumo-label">Património Total</span>
+                    <span class="resumo-valor-grande" id="patrimonioTotal">0,00 Kz</span>
+                </div>
+                <div class="resumo-card">
+                    <span class="resumo-label">Saldo em Renda</span>
+                    <span class="resumo-valor" id="saldoRendaCarteira">0,00 Kz</span>
+                </div>
+                <div class="resumo-card">
+                    <span class="resumo-label">Saldo em Investimento</span>
+                    <span class="resumo-valor" id="saldoInvestimentoCarteira">0,00 Kz</span>
+                </div>
+                <div class="resumo-card">
+                    <span class="resumo-label">Ganho/Perda</span>
+                    <span class="resumo-valor" id="ganhoPerdaCarteira">+0,00 Kz</span>
+                </div>
+            </div>
+
+            <!-- Distribuição de Moedas -->
+            <div class="carteira-moedas-container">
+                <h3><i class="fas fa-coins"></i> Distribuição por Moeda</h3>
+                <div class="carteira-moedas-grid" id="carteiraMoedasGrid">
+                    <!-- Moedas inseridas via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Posições da Carteira -->
+            <div class="carteira-posicoes">
+                <h3><i class="fas fa-list"></i> Posições</h3>
+                <div class="tabela-wrapper">
+                    <table class="tabela tabela-posicoes" id="tabelaPosicoes">
+                        <thead>
+                            <tr>
+                                <th>Ativo</th>
+                                <th class="numerico">Quantidade</th>
+                                <th class="numerico">Preço Médio</th>
+                                <th class="numerico">Preço Atual</th>
+                                <th class="numerico">Valor</th>
+                                <th class="numerico">Ganho/Perda</th>
+                                <th class="acao">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaPosicoes">
+                            <!-- Posições inseridas via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Ações da Carteira -->
+            <div class="carteira-acoes-container">
+                <button class="btn btn-primario" id="btnTransferir">
+                    <i class="fas fa-arrow-right"></i> Transferir para Investimento
+                </button>
+                <button class="btn btn-secundario" id="btnCredito">
+                    <i class="fas fa-hand-holding-usd"></i> Solicitar Crédito
+                </button>
+                <button class="btn btn-texto" id="btnResetCarteira">
+                    <i class="fas fa-undo"></i> Reset da Carteira
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola 🇦🇴</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script type="module" src="frontend/js/main.js"></script>
+</body>
+</html>

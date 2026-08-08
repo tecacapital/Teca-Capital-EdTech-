@@ -4,6 +4,8 @@
  * 
  * Responsabilidade: Detetar a página atual, inicializar módulos,
  * carregar estado de autenticação e configurar eventos globais.
+ * 
+ * 🌐 Suporte a GitHub Pages (subdiretório) e ambiente local
  */
 
 import { api } from './api.js';
@@ -12,7 +14,36 @@ import { appState } from './state.js';
 import { router } from './router.js';
 import { toasts } from './ui/toasts.js';
 
-// Módulos específicos por página (carregados dinamicamente)
+// ============================================
+// CONFIGURAÇÃO DE BASE PATH
+// ============================================
+
+/**
+ * Obtém o caminho base do projeto (para GitHub Pages)
+ * Ex: '/Teca-Capital-EdTech-/frontend' ou '' em desenvolvimento
+ */
+function getBasePath() {
+  // Deteta se está em subdiretório do GitHub Pages
+  const pathname = window.location.pathname;
+  
+  // Se contém '/Teca-Capital-EdTech-', extrai o prefixo
+  if (pathname.includes('/Teca-Capital-EdTech-')) {
+    const match = pathname.match(/^(\/Teca-Capital-EdTech-[^/]*)/);
+    if (match) {
+      return match[1];
+    }
+  }
+  
+  // Fallback: caminho vazio (desenvolvimento local ou raiz)
+  return '';
+}
+
+const BASE_PATH = getBasePath();
+
+// ============================================
+// MÓDULOS POR PÁGINA (caminhos relativos)
+// ============================================
+
 const pageModules = {
   'index': () => import('./pages/home.js'),
   'login': () => import('./pages/login.js'),
@@ -44,16 +75,49 @@ const pageModules = {
  */
 function getPageName() {
   const path = window.location.pathname;
-  const filename = path.split('/').pop() || 'index.html';
+  // Remove o BASE_PATH se existir
+  const cleanPath = path.replace(BASE_PATH, '');
+  const filename = cleanPath.split('/').pop() || 'index.html';
   return filename.replace('.html', '') || 'index';
 }
 
 /**
- * Inicializa a aplicação
+ * Constrói uma URL completa com o BASE_PATH
+ * Ex: resolveUrl('./pages/login.html') -> '/Teca-Capital-EdTech-/pages/login.html'
  */
+function resolveUrl(path) {
+  // Se já começa com /, usa como está
+  if (path.startsWith('/')) {
+    return path;
+  }
+  // Se começa com ./ ou ../, mantém relativo
+  if (path.startsWith('.') || path.startsWith('..')) {
+    return path;
+  }
+  // Caso contrário, retorna o caminho original
+  return path;
+}
+
+/**
+ * Constrói URL para navegação (com BASE_PATH)
+ */
+function buildUrl(path) {
+  // Remove barra inicial se existir
+  const cleanPath = path.replace(/^\//, '');
+  // Se não começa com ./ e não é vazio, adiciona ./
+  const relativePath = cleanPath && !cleanPath.startsWith('.') && !cleanPath.startsWith('..') 
+    ? `./${cleanPath}` 
+    : cleanPath || './';
+  return relativePath;
+}
+
+// ============================================
+// INICIALIZAÇÃO
+// ============================================
+
 async function init() {
-  // 1. Configurar router
-  router.init();
+  // 1. Configurar router (com base path)
+  router.init(BASE_PATH);
 
   // 2. Verificar autenticação
   await auth.init();
@@ -61,6 +125,7 @@ async function init() {
   // 3. Detetar página atual
   const pageName = getPageName();
   appState.set('currentPage', pageName);
+  appState.set('basePath', BASE_PATH);
 
   // 4. Carregar módulo da página
   if (pageModules[pageName]) {
@@ -86,34 +151,50 @@ async function init() {
   // 8. Configurar toasts
   setupToasts();
 
-  console.log(`Teca Capital EdTech — Página: ${pageName}`);
+  console.log(`🚀 Teca Capital EdTech — Página: ${pageName}`);
+  console.log(`📁 Base Path: ${BASE_PATH || '(raiz)'}`);
 }
 
-/**
- * Configura navegação SPA simulada
- */
+// ============================================
+// NAVEGAÇÃO SPA
+// ============================================
+
 function setupNavigation() {
-  document.querySelectorAll('a[href^="/"]').forEach(link => {
-    // Ignorar links com href vazio ou âncoras
+  document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
-    if (!href || href === '#' || href.startsWith('#')) return;
     
-    // Ignorar links com target="_blank" ou download
+    // Ignorar links vazios, âncoras, externos
+    if (!href || href === '#' || href.startsWith('#')) return;
+    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
     if (link.getAttribute('target') === '_blank' || link.hasAttribute('download')) return;
 
-    link.addEventListener('click', (e) => {
-      // Ignorar se for link administrativo oculto
-      if (href === '/admin.html' || href === '/funcionario.html') return;
+    // Ignorar links administrativos
+    if (href.includes('admin.html') || href.includes('funcionario.html')) return;
 
+    // Links com caminho absoluto ou relativo
+    // Se o href começa com /, removemos para ficar relativo
+    let cleanHref = href;
+    if (href.startsWith('/')) {
+      cleanHref = href.substring(1);
+    }
+
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      router.navigate(href);
+      
+      // Construir URL completa com base path
+      const targetUrl = cleanHref.startsWith('./') || cleanHref.startsWith('../')
+        ? cleanHref
+        : `./${cleanHref}`;
+      
+      router.navigate(targetUrl);
     });
   });
 }
 
-/**
- * Configura menu mobile (hambúrguer)
- */
+// ============================================
+// MENU MOBILE
+// ============================================
+
 function setupMobileMenu() {
   const toggle = document.getElementById('menuToggle');
   const overlay = document.getElementById('menuMobileOverlay');
@@ -159,9 +240,10 @@ function setupMobileMenu() {
   });
 }
 
-/**
- * Configura logout global
- */
+// ============================================
+// LOGOUT E TOASTS
+// ============================================
+
 function setupLogout() {
   const buttons = document.querySelectorAll('#btnLogout');
   buttons.forEach(btn => {
@@ -171,9 +253,6 @@ function setupLogout() {
   });
 }
 
-/**
- * Configura sistema de toasts
- */
 function setupToasts() {
   // Garantir que o container existe
   if (!document.querySelector('.toast-container')) {
@@ -183,6 +262,10 @@ function setupToasts() {
   }
 }
 
+// ============================================
+// EXPORTAÇÕES E INICIALIZAÇÃO
+// ============================================
+
 // Inicializar quando o DOM estiver pronto
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
@@ -191,4 +274,10 @@ if (document.readyState === 'loading') {
 }
 
 // Exportar para uso em outros módulos
-export const main = { init };
+export const main = { 
+  init, 
+  getBasePath, 
+  BASE_PATH,
+  resolveUrl,
+  buildUrl,
+};

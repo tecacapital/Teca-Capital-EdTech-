@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mercados — Simulador Teca Capital EdTech">
+    <title>Mercados - Teca Capital EdTech</title>
+    <link rel="icon" type="image/x-icon" href="frontend/assets/favicon/Teca Capital Logotipo sem fundo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="frontend/css/global.css">
+    <link rel="stylesheet" href="frontend/css/layout.css">
+    <link rel="stylesheet" href="frontend/css/components.css">
+    <link rel="stylesheet" href="frontend/css/pages/simulador.css">
+    <link rel="stylesheet" href="frontend/css/responsive.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header header-simulador" role="banner">
+        <div class="header-container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="frontend/assets/logos/Teca Capital Logotipo sem fundo.png" alt="Teca Capital EdTech" height="32">
+                </a>
+            </div>
+            <div class="header-simulador-info">
+                <span class="relogio" id="relogioSimulador">
+                    <i class="fas fa-calendar-day"></i>
+                    <span id="dataSimulada">01/01/2025</span>
+                </span>
+                <span class="velocidade-indicador" id="velocidadeIndicador">
+                    <i class="fas fa-clock"></i>
+                    <span id="velocidadeAtual">1x</span>
+                </span>
+                <button class="btn btn-sm btn-texto" id="btnPerfil" aria-label="Perfil">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-principal" id="navPrincipal" role="navigation" aria-label="Navegação principal">
+                <a href="home.html">Início</a>
+                <a href="simulador.html" class="active">Simulador</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="provas.html">Certificação</a>
+                <a href="referencias.html">Referências</a>
+                <a href="contato.html">Sobre Nós</a>
+                <div class="nav-actions">
+                    <span class="nav-user" id="navUser">
+                        <i class="fas fa-user"></i>
+                        <span id="navUserName">Utilizador</span>
+                    </span>
+                    <button class="btn btn-sm btn-texto" id="btnLogout">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== MENU MOBILE ===== -->
+    <div class="menu-mobile-overlay" id="menuMobileOverlay">
+        <div class="menu-mobile">
+            <button class="menu-mobile-fechar" id="menuMobileFechar" aria-label="Fechar menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="menu-mobile-nav" role="navigation" aria-label="Navegação mobile">
+                <a href="home.html">Início</a>
+                <a href="simulador.html" class="active">Simulador</a>
+                <a href="biblioteca.html">Biblioteca</a>
+                <a href="provas.html">Certificação</a>
+                <a href="referencias.html">Referências</a>
+                <a href="contato.html">Sobre Nós</a>
+                <div class="menu-mobile-actions">
+                    <a href="login.html" class="btn btn-secundario">Entrar</a>
+                    <a href="registro.html" class="btn btn-primario">Criar Conta</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="main main-simulador">
+        <div class="container-fluid">
+            <!-- Navegação do Simulador -->
+            <nav class="simulador-subnav" aria-label="Navegação do Simulador">
+                <a href="simulador.html" class="simulador-subnav-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="mercados.html" class="simulador-subnav-link active">
+                    <i class="fas fa-chart-bar"></i> Mercados
+                </a>
+                <a href="carteira.html" class="simulador-subnav-link">
+                    <i class="fas fa-wallet"></i> Carteira
+                </a>
+                <a href="historico.html" class="simulador-subnav-link">
+                    <i class="fas fa-history"></i> Histórico
+                </a>
+            </nav>
+
+            <!-- Cabeçalho da página -->
+            <div class="mercados-header">
+                <h1>Mercados</h1>
+                <p>Visualize e negocie ativos de todos os mercados disponíveis</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="mercados-filtros">
+                <div class="mercados-busca">
+                    <input type="text" id="buscaAtivos" placeholder="Buscar ativo..." class="input-busca">
+                    <button class="btn btn-primario" id="btnBuscar"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="mercados-categorias">
+                    <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                    <button class="filtro-btn" data-categoria="acoes">Ações</button>
+                    <button class="filtro-btn" data-categoria="titulos">Títulos</button>
+                    <button class="filtro-btn" data-categoria="etfs">ETFs</button>
+                    <button class="filtro-btn" data-categoria="cripto">Criptomoedas</button>
+                    <button class="filtro-btn" data-categoria="commodities">Commodities</button>
+                    <button class="filtro-btn" data-categoria="forex">Forex</button>
+                </div>
+                <div class="mercados-paises">
+                    <select id="filtroPais" class="select-filtro">
+                        <option value="todos">Todos os países</option>
+                        <option value="Angola">Angola</option>
+                        <option value="EUA">EUA</option>
+                        <option value="Europa">Europa</option>
+                        <option value="China">China</option>
+                        <option value="Japão">Japão</option>
+                        <option value="Brasil">Brasil</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tabela de Ativos -->
+            <div class="tabela-wrapper">
+                <table class="tabela tabela-ativos" id="tabelaAtivos">
+                    <thead>
+                        <tr>
+                            <th>Ativo</th>
+                            <th class="numerico">Preço</th>
+                            <th class="numerico">Var.% (dia)</th>
+                            <th class="numerico">Var.% (mês)</th>
+                            <th class="numerico">Volume</th>
+                            <th class="acao">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaAtivos">
+                        <!-- Ativos inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginação -->
+            <div class="paginacao" id="paginacao">
+                <button class="btn btn-sm btn-texto" id="paginaAnterior" disabled>
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <span id="paginaInfo">Página 1 de 1</span>
+                <button class="btn btn-sm btn-texto" id="paginaProxima" disabled>
+                    Próxima <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Teca Capital EdTech. Todos os direitos reservados.</p>
+                <p class="footer-made">Feito em Angola</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script type="module" src="frontend/js/main.js"></script>
+</body>
+</html>
