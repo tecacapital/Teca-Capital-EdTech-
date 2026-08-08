@@ -6,6 +6,8 @@
  * carregar estado de autenticação e configurar eventos globais.
  * 
  * 🌐 Suporte a GitHub Pages (subdiretório) e ambiente local
+ * 🔐 Atalho secreto: Ctrl+S → admin.html
+ * 📱 Acesso mobile: ?access=admin ou ?access=staff
  */
 
 import { api } from './api.js';
@@ -15,33 +17,7 @@ import { router } from './router.js';
 import { toasts } from './ui/toasts.js';
 
 // ============================================
-// CONFIGURAÇÃO DE BASE PATH
-// ============================================
-
-/**
- * Obtém o caminho base do projeto (para GitHub Pages)
- * Ex: '/Teca-Capital-EdTech-/frontend' ou '' em desenvolvimento
- */
-function getBasePath() {
-  // Deteta se está em subdiretório do GitHub Pages
-  const pathname = window.location.pathname;
-  
-  // Se contém '/Teca-Capital-EdTech-', extrai o prefixo
-  if (pathname.includes('/Teca-Capital-EdTech-')) {
-    const match = pathname.match(/^(\/Teca-Capital-EdTech-[^/]*)/);
-    if (match) {
-      return match[1];
-    }
-  }
-  
-  // Fallback: caminho vazio (desenvolvimento local ou raiz)
-  return '';
-}
-
-const BASE_PATH = getBasePath();
-
-// ============================================
-// MÓDULOS POR PÁGINA (caminhos relativos)
+// MÓDULOS POR PÁGINA
 // ============================================
 
 const pageModules = {
@@ -75,40 +51,8 @@ const pageModules = {
  */
 function getPageName() {
   const path = window.location.pathname;
-  // Remove o BASE_PATH se existir
-  const cleanPath = path.replace(BASE_PATH, '');
-  const filename = cleanPath.split('/').pop() || 'index.html';
+  const filename = path.split('/').pop() || 'index.html';
   return filename.replace('.html', '') || 'index';
-}
-
-/**
- * Constrói uma URL completa com o BASE_PATH
- * Ex: resolveUrl('./pages/login.html') -> '/Teca-Capital-EdTech-/pages/login.html'
- */
-function resolveUrl(path) {
-  // Se já começa com /, usa como está
-  if (path.startsWith('/')) {
-    return path;
-  }
-  // Se começa com ./ ou ../, mantém relativo
-  if (path.startsWith('.') || path.startsWith('..')) {
-    return path;
-  }
-  // Caso contrário, retorna o caminho original
-  return path;
-}
-
-/**
- * Constrói URL para navegação (com BASE_PATH)
- */
-function buildUrl(path) {
-  // Remove barra inicial se existir
-  const cleanPath = path.replace(/^\//, '');
-  // Se não começa com ./ e não é vazio, adiciona ./
-  const relativePath = cleanPath && !cleanPath.startsWith('.') && !cleanPath.startsWith('..') 
-    ? `./${cleanPath}` 
-    : cleanPath || './';
-  return relativePath;
 }
 
 // ============================================
@@ -116,18 +60,20 @@ function buildUrl(path) {
 // ============================================
 
 async function init() {
-  // 1. Configurar router (com base path)
-  router.init(BASE_PATH);
+  // 1. Verificar acesso privado (mobile)
+  checkMobilePrivateAccess();
 
-  // 2. Verificar autenticação
+  // 2. Configurar router
+  router.init();
+
+  // 3. Verificar autenticação
   await auth.init();
 
-  // 3. Detetar página atual
+  // 4. Detetar página atual
   const pageName = getPageName();
   appState.set('currentPage', pageName);
-  appState.set('basePath', BASE_PATH);
 
-  // 4. Carregar módulo da página
+  // 5. Carregar módulo da página
   if (pageModules[pageName]) {
     try {
       const module = await pageModules[pageName]();
@@ -139,24 +85,61 @@ async function init() {
     }
   }
 
-  // 5. Configurar navegação SPA
+  // 6. Configurar navegação SPA
   setupNavigation();
 
-  // 6. Configurar menu mobile
+  // 7. Configurar menu mobile
   setupMobileMenu();
 
-  // 7. Configurar logout global
+  // 8. Configurar logout global
   setupLogout();
 
-  // 8. Configurar toasts
+  // 9. Configurar toasts
   setupToasts();
 
+  // 10. Configurar atalho secreto (Ctrl+S)
+  setupSecretShortcut();
+
   console.log(`🚀 Teca Capital EdTech — Página: ${pageName}`);
-  console.log(`📁 Base Path: ${BASE_PATH || '(raiz)'}`);
 }
 
 // ============================================
-// NAVEGAÇÃO SPA
+// 🔐 ATALHO SECRETO (Ctrl + S)
+// ============================================
+
+function setupSecretShortcut() {
+  document.addEventListener('keydown', function(event) {
+    // Verifica Ctrl + S (ou Cmd + S no Mac)
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
+      event.preventDefault(); // Impede o "Guardar Página" do browser
+      
+      console.log('🔐 Atalho secreto acionado: Acedendo à área administrativa...');
+      
+      // Redireciona para o painel administrativo
+      window.location.href = 'admin.html';
+    }
+  });
+}
+
+// ============================================
+// 📱 ACESSO PRIVADO VIA URL (Mobile)
+// ============================================
+
+function checkMobilePrivateAccess() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const accessType = urlParams.get('access');
+
+  if (accessType === 'admin') {
+    console.log('🔐 Acesso administrativo via URL detectado');
+    window.location.href = 'admin.html';
+  } else if (accessType === 'staff' || accessType === 'funcionario') {
+    console.log('🔐 Acesso funcionário via URL detectado');
+    window.location.href = 'funcionario.html';
+  }
+}
+
+// ============================================
+// NAVEGAÇÃO SPA (SIMPLIFICADA)
 // ============================================
 
 function setupNavigation() {
@@ -168,24 +151,14 @@ function setupNavigation() {
     if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
     if (link.getAttribute('target') === '_blank' || link.hasAttribute('download')) return;
 
-    // Ignorar links administrativos
+    // Ignorar links administrativos (não aparecem no menu)
     if (href.includes('admin.html') || href.includes('funcionario.html')) return;
-
-    // Links com caminho absoluto ou relativo
-    // Se o href começa com /, removemos para ficar relativo
-    let cleanHref = href;
-    if (href.startsWith('/')) {
-      cleanHref = href.substring(1);
-    }
 
     link.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Construir URL completa com base path
-      const targetUrl = cleanHref.startsWith('./') || cleanHref.startsWith('../')
-        ? cleanHref
-        : `./${cleanHref}`;
-      
+      // Navegação direta para o ficheiro HTML na raiz
+      const targetUrl = href.startsWith('./') ? href.substring(2) : href;
       router.navigate(targetUrl);
     });
   });
@@ -254,7 +227,6 @@ function setupLogout() {
 }
 
 function setupToasts() {
-  // Garantir que o container existe
   if (!document.querySelector('.toast-container')) {
     const container = document.createElement('div');
     container.className = 'toast-container';
@@ -266,18 +238,10 @@ function setupToasts() {
 // EXPORTAÇÕES E INICIALIZAÇÃO
 // ============================================
 
-// Inicializar quando o DOM estiver pronto
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
   init();
 }
 
-// Exportar para uso em outros módulos
-export const main = { 
-  init, 
-  getBasePath, 
-  BASE_PATH,
-  resolveUrl,
-  buildUrl,
-};
+export const main = { init };
